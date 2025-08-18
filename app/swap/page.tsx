@@ -30,9 +30,9 @@ const SwapPage = () => {
           <CardContent className='p-6 space-y-3'>
             <div className='flex items-center justify-between'>
               <p className='font-bold text-[14px]'>Same-chain Swap</p>
-              <div className=" flex items-center gap-2">
-                <Image src={Assets.Refresh} alt='refresh' width={16} height={16} />
-                <Image src={Assets.Settings} alt='settings' width={16} height={16} />
+              <div className=" flex items-center gap-3 ">
+                <Image src={Assets.Refresh} alt='refresh' width={16} height={16} className='cursor-pointer hover:opacity-80' />
+                <Image src={Assets.Settings} alt='settings' width={16} height={16} className='cursor-pointer hover:opacity-80' />
               </div>
             </div>
 
