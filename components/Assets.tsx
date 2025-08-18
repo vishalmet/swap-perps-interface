@@ -14,6 +14,11 @@ import Settings from "../app/assets/icons/settings.svg";
 import TokenPlaceholder from "../app/assets/icons/token-placeholder.svg";
 import Shuffle from "../app/assets/icons/shuffle.svg";
 import Split from "../app/assets/icons/split.svg";
+import Star from "../app/assets/icons/star.svg";
+import Info from "../app/assets/icons/info.svg";
+import Deposit from "../app/assets/icons/deposit.svg";
+import Win from "../app/assets/icons/wincoins.svg";
+import User from "../app/assets/icons/user.svg";
 
 export const Assets = {
     KanaLogo,
@@ -31,4 +36,9 @@ export const Assets = {
     TokenPlaceholder,
     Shuffle,
     Split,
+    Star,
+    Info,
+    Deposit,
+    Win,
+    User,
 };
