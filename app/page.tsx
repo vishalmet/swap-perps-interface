@@ -1,9 +1,11 @@
-import Header from '@/components/Header'
+import React from 'react'
+import SwapPage from './swap/page'
 
 const Home = () => {
+
   return (
-    <div className='min-h-screen bg-black space-y-10 p-4 px-16'>
-      <Header />
+    <div className='p-4 px-16'>
+    <SwapPage />
     </div>
   )
 }

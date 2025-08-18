@@ -1,5 +1,7 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import Image from 'next/image'
+import { useRouter, usePathname } from 'next/navigation'
 import { Assets } from './Assets'
 import { Bell, BookOpen, ChartCandlestick, ChartColumnStacked, ChevronDown, Coins, Scale, Settings, UserCircle, Users } from 'lucide-react'
 import { Button } from './ui/button'
@@ -7,19 +9,60 @@ import { Button } from './ui/button'
 type Props = {}
 
 const Header = (props: Props) => {
+    const router = useRouter()
+    const pathname = usePathname()
+    
+    // Set default active page based on current pathname
+    const getActivePage = () => {
+        if (pathname === '/') return 'swap'
+        if (pathname === '/swap') return 'swap'
+        if (pathname === '/perps') return 'perps'
+        if (pathname === '/trade') return 'trade'
+        if (pathname === '/operps') return 'operps'
+        if (pathname === '/refer') return 'refer'
+        if (pathname === '/learn') return 'learn'
+        return 'swap'
+    }
+
+    const [activePage, setActivePage] = useState(getActivePage())
+
+    const navigationItems = [
+        { id: 'swap', label: 'Swap', icon: Coins, path: '/swap' },
+        { id: 'trade', label: 'Trade', icon: ChartColumnStacked, path: '/trade' },
+        { id: 'perps', label: 'Perps', icon: ChartCandlestick, path: '/perps' },
+        { id: 'operps', label: 'OPerps', icon: Scale, path: '/operps' },
+        { id: 'refer', label: 'Refer', icon: Users, path: '/refer' },
+        { id: 'learn', label: 'Learn', icon: BookOpen, path: '/learn' },
+    ]
+
+    const handleNavigation = (pageId: string, path: string) => {
+        setActivePage(pageId)
+        router.push(path)
+    }
+
     return (
         <header className='w-full flex justify-between items-center'>
             <section className=" flex items-center gap-4">
                 <Image src={Assets.KanaLogo} alt="Kanalabs" width={100} height={100} />
                 <div className="">
                     <ul className='flex items-center gap-4 text-[12px] text-white font-bold cursor-pointer'>
-                        <li className='flex items-center gap-1 hover:text-[#00FFF0]'><Coins size={16} />Swap</li>
-                        <li className='flex items-center gap-1 hover:text-[#00FFF0]'><ChartColumnStacked size={16} />Trade</li>
-                        <li className='flex items-center gap-1 hover:text-[#00FFF0]'><ChartCandlestick size={16} />Perps</li>
-                        <li className='flex items-center gap-1 hover:text-[#00FFF0]'><Scale size={16} />OPerps</li>
-                        <li className='flex items-center gap-1 hover:text-[#00FFF0]'><Users size={16} />Refer</li>
-                        <li className='flex items-center gap-1 hover:text-[#00FFF0]'><BookOpen size={16} />Learn</li>
-                        <li className='flex items-center gap-1 hover:text-[#00FFF0]'>More <ChevronDown size={16} /></li>
+                        {navigationItems.map((item) => (
+                            <li 
+                                key={item.id}
+                                className={`flex items-center gap-1 transition-colors duration-200 ${
+                                    activePage === item.id 
+                                        ? 'text-[#00FFF0]' 
+                                        : 'hover:text-[#00FFF0]'
+                                }`}
+                                onClick={() => handleNavigation(item.id, item.path)}
+                            >
+                                <item.icon size={16} />
+                                {item.label}
+                            </li>
+                        ))}
+                        <li className='flex items-center gap-1 hover:text-[#00FFF0] transition-colors duration-200'>
+                            More <ChevronDown size={16} />
+                        </li>
                     </ul>
                 </div>
             </section>
