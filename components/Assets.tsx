@@ -11,6 +11,7 @@ import ZkSync from "../app/assets/icons/zksync.svg";
 
 import Refresh from "../app/assets/icons/refresh.svg";
 import Settings from "../app/assets/icons/settings.svg";
+import TokenPlaceholder from "../app/assets/icons/token-placeholder.svg";
 
 export const Assets = {
     KanaLogo,
@@ -25,4 +26,5 @@ export const Assets = {
     ZkSync,
     Refresh,
     Settings,
+    TokenPlaceholder,
 };

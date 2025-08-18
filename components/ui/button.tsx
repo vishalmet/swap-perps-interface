@@ -14,7 +14,7 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "bg-transparent border border-[#0E9384] dark:border-[#00FFF0] text-[#0E9384] dark:text-[#00FFF0] font-bold hover:bg-[#00FFF01A] active:bg-[#080A0A]",
+          "bg-transparent border border-[#0E9384] dark:border-button-primary text-button-primary font-bold hover:bg-[#00FFF01A] active:bg-[#080A0A]",
         secondary:
           "bg-[#1C1F20] border border-[#FFFFFF]/10 dark:border-[#FFFFFF1A]/10 text-[#00FFF0] dark:text-[#00FFF0] font-bold hover:bg-[#00FFF01A] active:bg-[#080A0A]",
         ghost:
@@ -33,17 +33,17 @@ const buttonVariants = cva(
       {
         variant: ["default", "outline"],
         size: "default",
-        class: "shadow-[0_10px_8px_#00FFF033,0_4px_0px_#00B3B3] hover:shadow-[0_4px_8px_#00FFF033,0_2px_0px_#00B3B3] active:shadow-[0_2px_8px_#00FFF033,0_1px_0px_#00B3B3]"
+        class: "shadow-[0_10px_8px_#00FFFF1A,0_4px_0px_#00B3B3] hover:shadow-[0_4px_8px_#00FFFF1A,0_2px_0px_#00B3B3] active:shadow-[0_2px_8px_#00FFFF1A,0_1px_0px_#00B3B3]"
       },
       {
         variant: ["default", "outline"],
         size: "sm",
-        class: "shadow-[0_2px_4px_#00FFF033,0_1px_0px_#00B3B3] hover:shadow-[0_1px_4px_#00FFF033,0_1px_0px_#00B3B3] active:shadow-[0_1px_2px_#00FFF033,0_0px_0px_#00B3B3]"
+        class: "shadow-[0_2px_4px_#00FFFF1A,0_1px_0px_#00B3B3] hover:shadow-[0_1px_4px_#00FFFF1A,0_1px_0px_#00B3B3] active:shadow-[0_1px_2px_#00FFFF1A,0_0px_0px_#00B3B3]"
       },
       {
         variant: ["default", "outline"],
         size: "lg",
-        class: "shadow-[0_4px_4px_#00FFF033,0_2px_0px_#00B3B3] hover:shadow-[0_2px_4px_#00FFF033,0_1px_0px_#00B3B3] active:shadow-[0_2px_2px_#00FFF033,0_1px_0px_#00B3B3]"
+        class: "shadow-[0_4px_4px_#00FFFF1A,0_2px_0px_#00B3B3] hover:shadow-[0_2px_4px_#00FFFF1A,0_1px_0px_#00B3B3] active:shadow-[0_2px_2px_#00FFFF1A,0_1px_0px_#00B3B3]"
       }
     ],
     defaultVariants: {
