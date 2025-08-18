@@ -35,14 +35,14 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "w-full cursor-pointer",
+          "w-full cursor-pointer group",
           className
         )}
         {...props}
       >
-        <div className="flex justify-between items-center w-full p-6">
+        <div className="flex justify-between items-center w-full p-6 text-sm">
           {children}
-          <ChevronDownIcon className="text-muted-foreground pointer-events-none size-4 shrink-0 transition-transform duration-200 ease-in-out data-[state=open]:rotate-180" />
+          <ChevronDownIcon className="text-muted-foreground pointer-events-none size-4 shrink-0 transition-transform duration-200 ease-in-out group-data-[state=open]:rotate-180" />
         </div>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
@@ -62,7 +62,7 @@ function AccordionContent({
     >
       <div className="border-b border-white/10 w-[90%] mx-auto mb-3"></div>
 
-      <div className={cn("px-6 pb-6", className)}>{children}</div>
+      <div className={cn("px-6 pb-6 text-sm", className)}>{children}</div>
     </AccordionPrimitive.Content>
   )
 }

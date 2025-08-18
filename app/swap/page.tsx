@@ -110,7 +110,7 @@ const SwapPage = () => {
                         </Button>
                     </CardContent>
                 </Card>
-                <Accordion type='single' defaultValue="item-1" key="swap-accordion">
+                <Accordion type='single' collapsible>
                     <AccordionItem value='item-1' className='text-white/80'>
                         <AccordionTrigger className='text-[#777879]'>
                             Additional details
@@ -119,11 +119,11 @@ const SwapPage = () => {
                             <div className='space-y-3'>
                                 <div className='flex justify-between items-center'>
                                     <span className='text-[#777879] text-sm'>Minimum Received</span>
-                                    <span className='text-white font-medium'>0.00</span>
+                                    <span className='text-white/60'>0.00</span>
                                 </div>
                                 <div className='flex justify-between items-center'>
                                     <span className='text-[#777879] text-sm'>Transaction Fee</span>
-                                    <span className='text-white font-medium'>0.00</span>
+                                    <span className='text-white/60'>0.00</span>
                                 </div>
                                 <div className='flex items-center gap-2 text-[#00FFF0] cursor-pointer hover:opacity-80'>
                                     <span className='text-sm font-medium'>More routes</span>
