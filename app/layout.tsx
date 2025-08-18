@@ -6,7 +6,10 @@ import Header from '@/components/Header';
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial', 'sans-serif'],
 });
 
 export const metadata: Metadata = {
