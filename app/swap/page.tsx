@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
+import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from '@/components/ui/accordion'
 
 const SwapPage = () => {
     const [activeTab, setActiveTab] = useState<'same-chain' | 'cross-chain'>('same-chain')
@@ -25,7 +26,6 @@ const SwapPage = () => {
     return (
         <main className='max-w-xl mx-auto space-y-6 m-10'>
             {/* Main Swap Interface */}
-            <div className=''>
                 <Card>
                     <CardContent className='p-6 space-y-3'>
                         <div className='flex items-center justify-between'>
@@ -81,13 +81,17 @@ const SwapPage = () => {
                                 <p> Balance -</p>
                             </div>
                         </Card>
+
                         {/* To */}
-                        <Card className='flex py-4 px-6 gap-2 h-auto bg-[#111213]'>
+                        <Card className='flex py-4 px-6 gap-2 h-auto bg-[#111213] relative'>
+                            <div className="absolute -top-1 cursor-pointer hover:opacity-80 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#17181A] text-white/80 rounded-[8px] w-fit p-2 z-50 border border-white/10">
+                                <ArrowDownUp className='text-white/60' />
+                            </div>
                             <section className=' flex w-full gap-2'>
                                 <div className=" flex-1 flex flex-col justify-between">
                                     <p className='text-[12px]'>Receive to <span className='text-button-primary font-bold pl-1'> Connect Wallet</span></p>
                                     <div className=" mt-auto">
-                                        <input type="text" placeholder='0.00' className='bg-transparent outline-none py-2 font-medium text-xl w-full' />
+                                        <input type="text" placeholder='0.00' disabled className='bg-transparent outline-none py-2 font-medium text-xl w-full' />
                                         <div className="border-b border-white/10"></div>
                                     </div>
                                 </div>
@@ -106,7 +110,32 @@ const SwapPage = () => {
                         </Button>
                     </CardContent>
                 </Card>
-            </div>
+                <Accordion type='single' defaultValue="item-1" key="swap-accordion">
+                    <AccordionItem value='item-1' className='text-white/80'>
+                        <AccordionTrigger className='text-[#777879]'>
+                            Additional details
+                        </AccordionTrigger>
+                        <AccordionContent className='px-6'>
+                            <div className='space-y-3'>
+                                <div className='flex justify-between items-center'>
+                                    <span className='text-[#777879] text-sm'>Minimum Received</span>
+                                    <span className='text-white font-medium'>0.00</span>
+                                </div>
+                                <div className='flex justify-between items-center'>
+                                    <span className='text-[#777879] text-sm'>Transaction Fee</span>
+                                    <span className='text-white font-medium'>0.00</span>
+                                </div>
+                                <div className='flex items-center gap-2 text-[#00FFF0] cursor-pointer hover:opacity-80'>
+                                    <span className='text-sm font-medium'>More routes</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M7 7h10v10"/>
+                                        <path d="M7 17 17 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
         </main>
     )
 }
