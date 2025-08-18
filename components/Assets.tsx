@@ -1,3 +1,4 @@
+import KanaLogo from "../app/assets/logo.png";
 import Aptos from "../app/assets/icons/aptos.png";
 import Arbitrum from "../app/assets/icons/arbitrum.png";
 import Avalanche from "../app/assets/icons/avalanche.png";
@@ -9,6 +10,7 @@ import Sui from "../app/assets/icons/sui.png";
 import ZkSync from "../app/assets/icons/zksync.png";
 
 export const Assets = {
+    KanaLogo,
     Aptos,
     Arbitrum,
     Avalanche,
