@@ -10,13 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[#00FFF0] dark:bg-[#00FFF0] border border-[#0000004D] text-black font-bold shadow-[0_10px_8px_#00FFF033,0_4px_0px_#00B3B3] hover:bg-[#70FFF7] hover:shadow-[0_4px_8px_#00FFF033,0_2px_0px_#00B3B3] active:bg-[#00FFF0] active:shadow-[0_2px_8px_#00FFF033,0_1px_0px_#00B3B3]",
+          "bg-[#00FFF0] dark:bg-[#00FFF0] border border-[#0000004D] text-black font-bold hover:bg-[#70FFF7] active:bg-[#00FFF0]",
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "bg-transparent border border-[#0E9384] dark:border-[#00FFF0] text-[#0E9384] dark:text-[#00FFF0] font-bold shadow-[0_10px_8px_#00FFF033,0_4px_0px_#00B3B3] hover:bg-[#00FFF01A] hover:shadow-[0_4px_8px_#00FFF033,0_2px_0px_#00B3B3] active:bg-[#080A0A] active:shadow-[0_2px_8px_#00FFF033,0_1px_0px_#00B3B3]",
+          "bg-transparent border border-[#0E9384] dark:border-[#00FFF0] text-[#0E9384] dark:text-[#00FFF0] font-bold hover:bg-[#00FFF01A] active:bg-[#080A0A]",
         secondary:
-          "bg-transparent border border-[#0E9384] dark:border-[#00FFF0] text-[#0E9384] dark:text-[#00FFF0] font-bold shadow-[0_10px_8px_#00FFF033,0_4px_0px_#00B3B3] hover:bg-[#00FFF01A] hover:shadow-[0_4px_8px_#00FFF033,0_2px_0px_#00B3B3] active:bg-[#080A0A] active:shadow-[0_2px_8px_#00FFF033,0_1px_0px_#00B3B3]",
+          "bg-[#1C1F20] border border-[#FFFFFF]/10 dark:border-[#FFFFFF1A]/10 text-[#00FFF0] dark:text-[#00FFF0] font-bold hover:bg-[#00FFF01A] active:bg-[#080A0A]",
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
@@ -28,6 +28,24 @@ const buttonVariants = cva(
         icon: "size-9",
       },
     },
+    compoundVariants: [
+      // Add shadows only for default and outline variants
+      {
+        variant: ["default", "outline"],
+        size: "default",
+        class: "shadow-[0_10px_8px_#00FFF033,0_4px_0px_#00B3B3] hover:shadow-[0_4px_8px_#00FFF033,0_2px_0px_#00B3B3] active:shadow-[0_2px_8px_#00FFF033,0_1px_0px_#00B3B3]"
+      },
+      {
+        variant: ["default", "outline"],
+        size: "sm",
+        class: "shadow-[0_2px_4px_#00FFF033,0_1px_0px_#00B3B3] hover:shadow-[0_1px_4px_#00FFF033,0_1px_0px_#00B3B3] active:shadow-[0_1px_2px_#00FFF033,0_0px_0px_#00B3B3]"
+      },
+      {
+        variant: ["default", "outline"],
+        size: "lg",
+        class: "shadow-[0_4px_4px_#00FFF033,0_2px_0px_#00B3B3] hover:shadow-[0_2px_4px_#00FFF033,0_1px_0px_#00B3B3] active:shadow-[0_2px_2px_#00FFF033,0_1px_0px_#00B3B3]"
+      }
+    ],
     defaultVariants: {
       variant: "default",
       size: "default",
