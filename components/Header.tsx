@@ -67,11 +67,18 @@ const Header = (props: Props) => {
                 </div>
             </section>
             <section className='space-x-2'>
-                <Button variant='secondary' size='lg'><UserCircle size={16} />Connect Wallet</Button>
-                <Button variant='secondary' size='lg' className='text-white/40'><Image src={Assets.Star} alt='star' width={16} height={16} />VIP<Image src={Assets.Info} alt='info' width={16} height={16} /></Button>
-                <Button variant='secondary' size='lg' className=''><Image src={Assets.Win} alt='Coins' width={16} height={16} />Win $20</Button>
-                <Button variant='secondary' size='lg' className=''><Image src={Assets.Deposit} alt='Card' width={16} height={16} />Deposit</Button>
-                <Button variant='secondary' size='lg' className=''><Image src={Assets.User} alt='User' width={16} height={16} />Sign in</Button>
+                {activePage === 'perps' ? (
+                    // Show these 4 buttons only on perps page
+                    <>
+                        <Button variant='secondary' size='lg' className='text-white/40'><Image src={Assets.Star} alt='star' width={16} height={16} />VIP<Image src={Assets.Info} alt='info' width={16} height={16} /></Button>
+                        <Button variant='secondary' size='lg' className=''><Image src={Assets.Win} alt='Coins' width={16} height={16} />Win $20</Button>
+                        <Button variant='secondary' size='lg' className=''><Image src={Assets.Deposit} alt='Card' width={16} height={16} />Deposit</Button>
+                        <Button variant='secondary' size='lg' className=''><Image src={Assets.User} alt='User' width={16} height={16} />Sign in</Button>
+                    </>
+                ) : (
+                    // Show Connect Wallet button on other pages (swap, trade, etc.)
+                    <Button variant='secondary' size='lg'><UserCircle size={16} />Connect Wallet</Button>
+                )}
                 
                 <Button variant='secondary' size='lg' className=' relative text-white'><Bell size={16} className='relative' /> <span className='absolute top-1 right-2 bg-[#FFB74D] rounded-full w-2 h-2 flex items-center justify-center'></span></Button>
                 <Button variant='secondary' size='lg' className='text-white'><Settings size={16} /></Button>

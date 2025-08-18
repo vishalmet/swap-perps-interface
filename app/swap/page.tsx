@@ -98,7 +98,7 @@ const SwapPage = () => {
                                         <div className="border-b border-white/10"></div>
                                     </div>
                                 </div>
-                                <Card className=' flex flex-row items-center gap-2 p-4'>
+                                <Card className=' flex flex-row items-center gap-2 p-4 text-base'>
                                     <Image src={Assets.TokenPlaceholder} alt='token' width={40} height={40} />
                                     <p className='font-bold'>Token <br /> <span className='font-medium'><span className='font-normal'>on</span> Chain</span></p>
                                 </Card>
