@@ -6,9 +6,7 @@ import { Assets } from './Assets'
 import { Bell, BookOpen, ChartCandlestick, ChartColumnStacked, ChevronDown, Coins, Scale, Settings, UserCircle, Users } from 'lucide-react'
 import { Button } from './ui/button'
 
-type Props = {}
-
-const Header = (props: Props) => {
+const Header = () => {
     const router = useRouter()
     const pathname = usePathname()
     

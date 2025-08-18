@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { ArrowDownUp, Settings, RefreshCw, Grid3X3, ArrowUpDown, Shuffle } from 'lucide-react'
+import { ArrowDownUp, Shuffle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
