@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { ArrowDownUp, Settings, RefreshCw, Grid3X3, ArrowUpDown } from 'lucide-react'
+import { ArrowDownUp, Settings, RefreshCw, Grid3X3, ArrowUpDown, Shuffle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
@@ -25,11 +25,38 @@ const SwapPage = () => {
 
     return (
         <main className='max-w-xl mx-auto space-y-6 m-10'>
-            {/* Main Swap Interface */}
-                <Card>
+            <div className="">
+                {/* Main Swap Interface */}
+                <section className='flex items-center justify-between'>
+                    <div className="flex items-center">
+                        <button
+                            onClick={() => setActiveTab('same-chain')}
+                            className={` relative flex gap-3 rounded-t-xl text-xs cursor-pointer border border-b-0 border-white/10 shadow-sm py-4 px-6 transition-all duration-200 ${activeTab === 'same-chain'
+                                    ? 'bg-[#17181A] text-white/80'
+                                    : 'bg-[#111213] text-[#A5A5A6] hover:text-white/80'
+                                }`}
+                        >
+                            <Image src={Assets.Split} alt='split' width={18} height={16} className='cursor-pointer hover:opacity-80' />
+                            Same-chain
+                            {activeTab === 'same-chain' && <div className="absolute -bottom-0.5 left-0 w-full border-b-2 border-[#17181A]"></div>}
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('cross-chain')}
+                            className={` relative flex gap-3 rounded-t-xl text-xs cursor-pointer border border-b-0 border-white/10 shadow-sm py-4 px-6 transition-all duration-200 ${activeTab === 'cross-chain'
+                                    ? 'bg-[#17181A] text-white/80'
+                                    : 'bg-[#111213] text-[#A5A5A6] hover:text-white/80'
+                                }`}
+                        >
+                            <Shuffle className='w-[18px] h-[16px]' />
+                            Cross-chain
+                            {activeTab === 'cross-chain' && <div className="absolute -bottom-0.5 left-0 w-full border-b-2 border-[#17181A]"></div>}
+                        </button>
+                    </div>
+                </section>
+                <Card className='rounded-tl-none'>
                     <CardContent className='p-6 space-y-3'>
                         <div className='flex items-center justify-between'>
-                            <p className='font-bold text-[14px]'>Same-chain Swap</p>
+                            <p className='font-bold text-[14px]'>{activeTab === 'same-chain' ? 'Same-chain Swap' : 'Cross-chain Swap'}</p>
                             <div className=" flex items-center gap-3 ">
                                 <Image src={Assets.Refresh} alt='refresh' width={16} height={16} className='cursor-pointer hover:opacity-80' />
                                 <Image src={Assets.Settings} alt='settings' width={16} height={16} className='cursor-pointer hover:opacity-80' />
@@ -110,32 +137,34 @@ const SwapPage = () => {
                         </Button>
                     </CardContent>
                 </Card>
-                <Accordion type='single' collapsible>
-                    <AccordionItem value='item-1' className='text-white/80'>
-                        <AccordionTrigger className='text-[#777879]'>
-                            Additional details
-                        </AccordionTrigger>
-                        <AccordionContent className='px-6'>
-                            <div className='space-y-3'>
-                                <div className='flex justify-between items-center'>
-                                    <span className='text-[#777879] text-sm'>Minimum Received</span>
-                                    <span className='text-white/60'>0.00</span>
-                                </div>
-                                <div className='flex justify-between items-center'>
-                                    <span className='text-[#777879] text-sm'>Transaction Fee</span>
-                                    <span className='text-white/60'>0.00</span>
-                                </div>
-                                <div className='flex items-center gap-2 text-[#00FFF0] cursor-pointer hover:opacity-80'>
-                                    <span className='text-sm font-medium'>More routes</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M7 7h10v10"/>
-                                        <path d="M7 17 17 7"/>
-                                    </svg>
-                                </div>
+            </div>
+
+            <Accordion type='single' collapsible>
+                <AccordionItem value='item-1' className='text-white/80'>
+                    <AccordionTrigger className='text-[#777879]'>
+                        Additional details
+                    </AccordionTrigger>
+                    <AccordionContent className='px-6'>
+                        <div className='space-y-3'>
+                            <div className='flex justify-between items-center'>
+                                <span className='text-[#777879] text-sm'>Minimum Received</span>
+                                <span className='text-white/60'>0.00</span>
                             </div>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                            <div className='flex justify-between items-center'>
+                                <span className='text-[#777879] text-sm'>Transaction Fee</span>
+                                <span className='text-white/60'>0.00</span>
+                            </div>
+                            <div className='flex items-center gap-2 text-[#00FFF0] cursor-pointer hover:opacity-80'>
+                                <span className='text-sm font-medium'>More routes</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M7 7h10v10" />
+                                    <path d="M7 17 17 7" />
+                                </svg>
+                            </div>
+                        </div>
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
         </main>
     )
 }
