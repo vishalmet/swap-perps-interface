@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown } from 'lucide-react'
+import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
@@ -89,59 +89,70 @@ const PerpsPage = () => {
               </Card>
             </section>
           </section>
-                     {/* terminal kinda UI */}
-           <section>
-             <Card className='rounded-[8px] min-h-full w-full bg-transparent'>
-               <CardContent className='px-0'>
-                 <Tabs defaultValue="open-orders" className="w-full">
-                   <TabsList className="bg-transparent p-0  border-b border-white/10">
-                     <TabsTrigger value="open-orders" className='rounded-tl-[8px]'>Open Orders</TabsTrigger>
-                     <TabsTrigger value="positions">Positions</TabsTrigger>
-                     <TabsTrigger value="order-history">Order History</TabsTrigger>
-                     <TabsTrigger value="trade-history">Trade History</TabsTrigger>
-                     <TabsTrigger value="funding-history">Funding History</TabsTrigger>
-                     <TabsTrigger value="deposit-withdraw">Deposit/Withdraw History</TabsTrigger>
-                   </TabsList>
-                   
-                   <TabsContent value="open-orders" className="mt-4">
-                     <div className="p-4">
-                       <p className="text-white/60">Open Orders content will go here</p>
-                     </div>
-                   </TabsContent>
-                   
-                   <TabsContent value="positions" className="mt-4">
-                     <div className="p-4">
-                       <p className="text-white/60">Positions content will go here</p>
-                     </div>
-                   </TabsContent>
-                   
-                   <TabsContent value="order-history" className="mt-4">
-                     <div className="p-4">
-                       <p className="text-white/60">Order History content will go here</p>
-                     </div>
-                   </TabsContent>
-                   
-                   <TabsContent value="trade-history" className="mt-4">
-                     <div className="p-4">
-                       <p className="text-white/60">Trade History content will go here</p>
-                     </div>
-                   </TabsContent>
-                   
-                   <TabsContent value="funding-history" className="mt-4">
-                     <div className="p-4">
-                       <p className="text-white/60">Funding History content will go here</p>
-                     </div>
-                   </TabsContent>
-                   
-                   <TabsContent value="deposit-withdraw" className="mt-4">
-                     <div className="p-4">
-                       <p className="text-white/60">Deposit/Withdraw History content will go here</p>
-                     </div>
-                   </TabsContent>
-                 </Tabs>
-               </CardContent>
-             </Card>
-           </section>
+          {/* terminal kinda UI */}
+          <section>
+            <Card className='rounded-[8px] min-h-full w-full bg-transparent'>
+              <CardContent className='px-0'>
+                <Tabs defaultValue="open-orders" className="w-full">
+                  <TabsList className="bg-transparent p-0  border-b border-white/10 flex justify-between items-center">
+                    <div className="flex">
+                      <TabsTrigger value="open-orders" className='rounded-tl-[8px]'>Open Orders</TabsTrigger>
+                      <TabsTrigger value="positions">Positions</TabsTrigger>
+                      <TabsTrigger value="order-history">Order History</TabsTrigger>
+                      <TabsTrigger value="trade-history">Trade History</TabsTrigger>
+                      <TabsTrigger value="funding-history">Funding History</TabsTrigger>
+                      <TabsTrigger value="deposit-withdraw">Deposit/Withdraw History</TabsTrigger>
+                    </div>
+                    <div className=" py-1 px-4 cursor-pointer hover:bg-white/5 rounded-tr-[8px]">
+                      <Ellipsis className='text-white/60' />
+                    </div>
+                  </TabsList>
+
+                  <TabsContent value="open-orders" className="min-h-48 flex justify-center items-center">
+                    <div className="p-4">
+                      <p className="text-white/60 text-[10px]">Sign in to see your Open orders</p>
+                      <p className='text-primary font-bold text-center text-xs hover:underline cursor-pointer'>Sign in</p>
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="positions" className="min-h-48 flex justify-center items-center">
+                    <div className="p-4">
+                      <p className="text-white/60 text-[10px]">Sign in to see your Positions</p>
+                      <p className='text-primary font-bold text-center text-xs hover:underline cursor-pointer'>Sign in</p>
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="order-history" className="min-h-48 flex justify-center items-center">
+                    <div className="p-4">
+                      <p className="text-white/60 text-[10px]">Sign in to see your Order History</p>
+                      <p className='text-primary font-bold text-center text-xs hover:underline cursor-pointer'>Sign in</p>
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="trade-history" className="min-h-48 flex justify-center items-center">
+                    <div className="p-4">
+                      <p className="text-white/60 text-[10px]">Sign in to see your Trade History</p>
+                      <p className='text-primary font-bold text-center text-xs hover:underline cursor-pointer'>Sign in</p>
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="funding-history" className="min-h-48 flex justify-center items-center">
+                    <div className="p-4">
+                      <p className="text-white/60 text-[10px]">Sign in to see your Funding History</p>
+                      <p className='text-primary font-bold text-center text-xs hover:underline cursor-pointer'>Sign in</p>
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="deposit-withdraw" className="min-h-48 flex justify-center items-center">
+                    <div className="p-4">
+                      <p className="text-white/60 text-[10px]">Sign in to see your Deposit/Withdraw History</p>
+                      <p className='text-primary font-bold text-center text-xs hover:underline cursor-pointer'>Sign in</p>
+                    </div>
+                  </TabsContent>
+                </Tabs>
+              </CardContent>
+            </Card>
+          </section>
         </section>
         {/* third column */}
         <section>
