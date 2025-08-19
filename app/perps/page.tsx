@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis, MoveDown } from 'lucide-react'
+import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis, MoveDown, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
@@ -79,7 +79,7 @@ const PerpsPage = () => {
 
             {/* column 2 */}
             <section className='flex-1 space-y-2'>
-                             <Card className='rounded-[8px] h-[65%] w-full bg-transparent flex flex-col'>
+              <Card className='rounded-[8px] h-[65%] w-full bg-transparent flex flex-col'>
                 <CardHeader className='text-sm py-2 px-3 border-b border-white/10 font-bold flex-shrink-0'>Orderbook</CardHeader>
 
                 {/* Headers - Fixed */}
@@ -92,10 +92,10 @@ const PerpsPage = () => {
                 </div>
 
                 {/* Scrollable Orders Container */}
-                  <div className='flex-1 flex flex-col'>
-                                                                                                                                                           {/* Sell Orders Section - Scrollable */}
-                      <div className='h-[150px] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
-                      {[
+                <div className='flex-1 flex flex-col'>
+                  {/* Sell Orders Section - Scrollable */}
+                  <div className='h-[150px] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
+                    {[
                       { price: '22.025', size: '307.825', sum: '307.825' },
                       { price: '22.000', size: '45.082', sum: '352.907' },
                       { price: '21.990', size: '0.114', sum: '353.021' },
@@ -125,20 +125,20 @@ const PerpsPage = () => {
                         />
                       </div>
                     ))}
-                    </div>
+                  </div>
 
-                    {/* Current Market Price - Fixed Center */}
-                    <div className='flex items-center py-2 px-3 flex-shrink-0'>
-                      <span className='text-[#EF5350] font-bold text-lg'>2345.5</span>
-                      <svg className='w-4 h-4 text-[#EF5350] ml-1' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 14l-7 7m0 0l-7-7m7 7V3' />
-                      </svg>
-                      <span className='text-white/60 text-base ml-2 underline'>2345.6</span>
-                    </div>
+                  {/* Current Market Price - Fixed Center */}
+                  <div className='flex items-center py-2 px-3 flex-shrink-0'>
+                    <span className='text-[#EF5350] font-bold text-lg'>2345.5</span>
+                    <svg className='w-4 h-4 text-[#EF5350] ml-1' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 14l-7 7m0 0l-7-7m7 7V3' />
+                    </svg>
+                    <span className='text-white/60 text-base ml-2 underline'>2345.6</span>
+                  </div>
 
-                                                                                                                                                           {/* Buy Orders Section - Scrollable */}
-                      <div className='h-[150px] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
-                      {[
+                  {/* Buy Orders Section - Scrollable */}
+                  <div className='h-[150px] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
+                    {[
                       { price: '21.920', size: '0.750', sum: '0.750' },
                       { price: '21.915', size: '0.850', sum: '1.600' },
                       { price: '21.910', size: '0.950', sum: '2.550' },
@@ -168,11 +168,32 @@ const PerpsPage = () => {
                         />
                       </div>
                     ))}
-                    </div>
                   </div>
+                </div>
               </Card>
-              <Card className='rounded-[8px] h-[34%] w-full flex justify-center items-center bg-transparent'>
-
+              <Card className='rounded-[8px] h-[34%] w-full bg-transparent'>
+                <CardHeader className='text-sm py-2 px-3 border-b border-white/10 font-bold flex-shrink-0'> Trades </CardHeader>
+                <CardContent className='flex px-2 py-1 bg-[#121414] border-b border-white/10'>
+                  <p className='text-white/60 text-[10px] w-1/3'>Price</p>
+                  <p className='text-white/60 text-[10px] w-1/3'>Size</p>
+                  <p className='text-white/60 text-[10px] w-1/2'>Time</p>
+                </CardContent>
+                                 <div className="h-[70%] overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
+                   {[
+                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'buy' },
+                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'sell' },
+                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'buy' },
+                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'sell' },
+                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'buy' },
+                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'sell' }
+                   ].map((trade, index) => (
+                     <div key={`trade-${index}`} className="flex text-[10px] px-2 py-1 border-b border-white/10 last:border-b-0">
+                       <p className={`w-1/3 ${trade.side === 'buy' ? 'text-[#66BB6A]' : 'text-[#EF5350]'}`}>{trade.price}</p>
+                       <p className='w-1/3'>{trade.size}</p>
+                       <p className='w-1/2 flex justify-between items-center'>{trade.time} <ExternalLink className='text-primary cursor-pointer hover:opacity-80' size={10} /></p>
+                     </div>
+                   ))}
+                 </div>
               </Card>
             </section>
           </section>
