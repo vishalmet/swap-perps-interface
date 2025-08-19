@@ -1,10 +1,9 @@
 'use client'
 import React, { useState, useCallback } from 'react'
-import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis, MoveDown, ExternalLink, Upload, Download, ChevronRight, ArrowRightLeft } from 'lucide-react'
+import { ChevronDown, Ellipsis, ExternalLink, Upload, Download, ChevronRight, ArrowRightLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
-import { Checkbox } from '@/components/ui/checkbox'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
 import Footer from '@/components/Footer'
@@ -329,7 +328,27 @@ const BuyOrSell = () => {
           ))}
         </Tabs>
       </Card>
-
+      <section className='p-2 space-y-2'>
+        <p className=' text-white font-bold text-sm'>Account Overview</p>
+        <div className=" text-[10px] space-y-1">
+          <div className=" flex justify-between items-center">
+            <p className='text-white/60 underline'>Account Equity</p>
+            <p className='text-white/60 font-bold'>$0.00</p>
+          </div>
+          <div className=" flex justify-between items-center">
+            <p className='text-white/60 underline'>Balance</p>
+            <p className='text-white/60 font-bold'>$0.00</p>
+          </div>
+          <div className=" flex justify-between items-center">
+            <p className='text-white/60 underline'>Balance available to trade</p>
+            <p className='text-white/60 font-bold'>$0.00</p>
+          </div>
+          <div className=" flex justify-between items-center">
+            <p className='text-white/60 underline'>Unrealised PnL</p>
+            <p className='text-white/60 font-bold'>$0.00</p>
+          </div>
+        </div>
+      </section>
     </div >
   )
 }
