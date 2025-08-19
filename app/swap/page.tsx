@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { ArrowDownUp, Shuffle } from 'lucide-react'
+import { ArrowDownUp, LayoutGrid, Shuffle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
@@ -52,6 +52,7 @@ const SwapPage = () => {
                             {activeTab === 'cross-chain' && <div className="absolute -bottom-0.5 left-0 w-full border-b-2 border-[#17181A]"></div>}
                         </button>
                     </div>
+                    <LayoutGrid className='w-[16px] h-[16px] text-primary cursor-pointer hover:opacity-80 m-2' />
                 </section>
                 <Card className='rounded-tl-none'>
                     <CardContent className='p-6 space-y-3'>
