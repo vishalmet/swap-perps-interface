@@ -10,28 +10,28 @@ import Footer from '@/components/Footer'
 
 // Header Component with trading pair info
 const PerpsHeader = () => (
-  <Card className='bg-transparent flex flex-row gap-0 rounded-[8px]'>
-    <CardAction className='flex items-center gap-1 text-[var(--color-text-primary)] font-bold border-r border-[var(--color-border-primary)] p-4 cursor-pointer hover:bg-[var(--color-hover-primary)] rounded-l-xl'>
-      <Image src={Assets.PerpPair} alt='perp pair' width={30} height={24} />
-      APT-PERP<ChevronDown />
+  <Card className='bg-transparent flex flex-col lg:flex-row gap-0 rounded-[8px] overflow-hidden'>
+    <CardAction className='flex items-center gap-1 text-[var(--color-text-primary)] font-bold border-b lg:border-b-0 lg:border-r border-[var(--color-border-primary)] p-3 lg:p-4 cursor-pointer hover:bg-[var(--color-hover-primary)] rounded-tl-xl lg:rounded-tl-xl lg:rounded-tr-none'>
+      <Image src={Assets.PerpPair} alt='perp pair' width={24} height={20} className='lg:w-[30px] lg:h-[24px]' />
+      <span className='text-sm lg:text-base'>APT-PERP</span><ChevronDown className='w-4 h-4 lg:w-5 lg:h-5' />
     </CardAction>
-    <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
+    <CardAction className='py-2 lg:py-1 px-3 lg:px-4 w-full lg:w-[155px] border-b lg:border-b-0 lg:border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
       <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Mark</span><br />
       <span className='text-sm text-[var(--color-text-primary)] font-bold'>$7.32</span>
     </CardAction>
-    <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
+    <CardAction className='py-2 lg:py-1 px-3 lg:px-4 w-full lg:w-[155px] border-b lg:border-b-0 lg:border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
       <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>24h change</span><br />
       <span className='text-sm text-[var(--color-success)] font-bold'>+2 %</span>
     </CardAction>
-    <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
+    <CardAction className='py-2 lg:py-1 px-3 lg:px-4 w-full lg:w-[155px] border-b lg:border-b-0 lg:border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
       <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Oracle Price</span><br />
       <span className='text-sm text-[var(--color-text-primary)] font-bold'>$11.1</span>
     </CardAction>
-    <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
+    <CardAction className='py-2 lg:py-1 px-3 lg:px-4 w-full lg:w-[155px] border-b lg:border-b-0 lg:border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
       <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>24h volume</span><br />
       <span className='text-sm text-[var(--color-text-primary)] font-bold'>245,694,542</span>
     </CardAction>
-    <CardAction className='py-1 px-4 w-[180px] hover:bg-[var(--color-hover-primary)] rounded-r-xl flex justify-between items-center gap-2'>
+    <CardAction className='py-2 lg:py-1 px-3 lg:px-4 w-full lg:w-[180px] hover:bg-[var(--color-hover-primary)] rounded-bl-xl lg:rounded-bl-none lg:rounded-r-xl flex justify-between items-center gap-2'>
       <span>
         <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Funding</span><br />
         <span className='text-sm font-bold text-[#FFB74D]'>0.012%</span>
@@ -46,7 +46,7 @@ const PerpsHeader = () => (
 
 // Chart Component
 const PerpsChart = () => (
-  <Card className='rounded-[8px] min-h-[600px] flex justify-center items-center'>
+  <Card className='rounded-[8px] min-h-[400px] lg:min-h-[600px] flex justify-center items-center'>
     <CardContent>Graph</CardContent>
   </Card>
 )
@@ -511,18 +511,18 @@ const PerpsHistory = () => {
       <CardContent className='px-0'>
         <Tabs defaultValue="open-orders" className="w-full">
           <TabsList className="bg-transparent p-0 border-b border-[var(--color-border-primary)] flex justify-between items-center w-full">
-            <div className="flex w-fit">
+            <div className="flex w-fit overflow-x-auto">
               {tabItems.map((tab) => (
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
-                  className={tab.value === 'open-orders' ? 'rounded-tl-[8px]' : ''}
+                  className={`whitespace-nowrap ${tab.value === 'open-orders' ? 'rounded-tl-[8px]' : ''}`}
                 >
                   {tab.label}
                 </TabsTrigger>
               ))}
             </div>
-            <div className="py-1 px-4 cursor-pointer hover:bg-[var(--color-hover-primary)] rounded-tr-[8px]">
+            <div className="py-1 px-4 cursor-pointer hover:bg-[var(--color-hover-primary)] rounded-tr-[8px] flex-shrink-0">
               <Ellipsis className='text-[var(--color-text-secondary)]' />
             </div>
           </TabsList>
@@ -545,12 +545,12 @@ const PerpsHistory = () => {
 const PerpsPage = () => {
   return (
     <div className='min-h-screen flex flex-col'>
-      <main className='p-4 flex space-x-2 w-full flex-1'>
+      <main className='p-2 sm:p-4 flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-2 w-full flex-1'>
         {/* column 1 & 2 */}
-        <section className='w-[80%] space-y-2'>
+        <section className='w-full lg:w-[80%] space-y-2'>
           {/* column 1 */}
-          <section className='h-fit flex space-x-2'>
-            <section className='w-fit space-y-2'>
+          <section className='h-fit flex flex-col xl:flex-row space-y-2 xl:space-y-0 xl:space-x-2'>
+            <section className='w-full xl:w-fit space-y-2'>
               <PerpsHeader />
               <PerpsChart />
             </section>
@@ -568,7 +568,7 @@ const PerpsPage = () => {
         </section>
 
         {/* third column */}
-        <section className='w-[20%]'>
+        <section className='w-full lg:w-[20%]'>
           <BuyOrSell />
         </section>
       </main>

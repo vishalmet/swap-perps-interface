@@ -30,38 +30,40 @@ const SwapPage = () => {
 
     return (
         <div className={`min-h-screen flex flex-col ${theme === 'light' ? 'bg-[#F7F8FA]' : ''}`}>
-            <main className='p-4 flex-1'>
-                <div className="max-w-xl mx-auto">
+            <main className='p-2 sm:p-4 flex-1'>
+                <div className="max-w-xl mx-auto px-2 sm:px-0">
                     {/* Main Swap Interface */}
                     <section className='flex items-center justify-between'>
-                        <div className="flex items-center">
+                        <div className="flex items-center w-full sm:w-auto">
                             <button
                                 onClick={() => setActiveTab('same-chain')}
-                                className={` relative flex gap-3 rounded-t-xl text-xs cursor-pointer font-bold border border-b-0 border-[var(--color-border-primary)] py-4 px-6 transition-all duration-200 ${activeTab === 'same-chain'
+                                className={`relative flex gap-2 sm:gap-3 rounded-t-xl text-[10px] sm:text-xs cursor-pointer font-bold border border-b-0 border-[var(--color-border-primary)] py-2 sm:py-4 px-3 sm:px-6 transition-all duration-200 flex-1 sm:flex-none ${activeTab === 'same-chain'
                                     ? theme === 'light' ? 'bg-[#FCFDFE] text-[var(--color-text-primary)]' : 'bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]'
                                     : theme === 'light' ? 'bg-[#EFF7F8] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]' : 'bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
                                     }`}
                             >
-                                <Image src={theme === 'light' ? Assets.LightSplit : Assets.Split} alt='split' width={18} height={16} className='cursor-pointer hover:opacity-80' />
-                                Same-chain
+                                <Image src={theme === 'light' ? Assets.LightSplit : Assets.Split} alt='split' width={16} height={14} className='cursor-pointer hover:opacity-80 sm:w-[18px] sm:h-[16px]' />
+                                <span className='hidden sm:inline'>Same-chain</span>
+                                <span className='sm:hidden'>Same</span>
                                 {activeTab === 'same-chain' && <div className={`absolute -bottom-0.5 left-0 w-full border-b-2 ${theme === 'light' ? 'border-[#FCFDFE]' : 'border-[var(--color-bg-secondary)]'}`}></div>}
                             </button>
                             <button
                                 onClick={() => setActiveTab('cross-chain')}
-                                className={` relative flex gap-3 rounded-t-xl text-xs cursor-pointer font-bold border border-b-0 border-[var(--color-border-primary)] py-4 px-6 transition-all duration-200 ${activeTab === 'cross-chain'
+                                className={`relative flex gap-2 sm:gap-3 rounded-t-xl text-[10px] sm:text-xs cursor-pointer font-bold border border-b-0 border-[var(--color-border-primary)] py-2 sm:py-4 px-3 sm:px-6 transition-all duration-200 flex-1 sm:flex-none ${activeTab === 'cross-chain'
                                     ? theme === 'light' ? 'bg-[#FCFDFE] text-[var(--color-text-primary)]' : 'bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]'
                                     : theme === 'light' ? 'bg-[#EFF7F8] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]' : 'bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
                                     }`}
                             >
-                                <Shuffle className='w-[18px] h-[16px]' />
-                                Cross-chain
+                                <Shuffle className='w-[16px] h-[14px] sm:w-[18px] sm:h-[16px]' />
+                                <span className='hidden sm:inline'>Cross-chain</span>
+                                <span className='sm:hidden'>Cross</span>
                                 {activeTab === 'cross-chain' && <div className={`absolute -bottom-0.5 left-0 w-full border-b-2 ${theme === 'light' ? 'border-[#FCFDFE]' : 'border-[var(--color-bg-secondary)]'}`}></div>}
                             </button>
                         </div>
                         <LayoutGrid className='w-[16px] h-[16px] text-[var(--color-primary-text)] cursor-pointer hover:opacity-80 m-2' />
                     </section>
                     <Card className={`rounded-tl-none ${theme === 'light' ? 'bg-[#FCFDFE]' : ''}`}>
-                        <CardContent className='p-6 space-y-3'>
+                        <CardContent className='p-3 sm:p-6 space-y-3'>
                             <div className='flex items-center justify-between'>
                                 <p className='font-bold text-[14px]'>{activeTab === 'same-chain' ? 'Same-chain Swap' : 'Cross-chain Swap'}</p>
                                 <div className=" flex items-center gap-3 ">
@@ -71,12 +73,12 @@ const SwapPage = () => {
                             </div>
 
                             {/* Chain Selection Band */}
-                            <section className='flex items-center gap-2'>
+                            <section className='flex items-center gap-1 sm:gap-2 overflow-x-auto pb-2'>
                                 {chains.map((chain) => (
                                     <button
                                         key={chain.id}
                                         onClick={() => setSelectedChain(chain.id)}
-                                        className={`flex flex-col items-center transition-all duration-300 cursor-pointer p-2 w-fit ${selectedChain === chain.id
+                                        className={`flex flex-col items-center transition-all duration-300 cursor-pointer p-1 sm:p-2 w-fit min-w-[60px] sm:min-w-0 ${selectedChain === chain.id
                                             ? 'opacity-100 scale-110'
                                             : 'opacity-100 hover:opacity-80'
                                             }`}
@@ -96,8 +98,8 @@ const SwapPage = () => {
                             </section>
 
                             {/* From */}
-                            <Card className={`flex py-4 px-6 gap-2 h-auto ${theme === 'light' ? 'bg-[#F2F9F9]' : 'bg-[var(--color-bg-card)]'}`}>
-                                <section className=' flex w-full gap-2'>
+                            <Card className={`flex py-3 sm:py-4 px-3 sm:px-6 gap-2 h-auto ${theme === 'light' ? 'bg-[#F2F9F9]' : 'bg-[var(--color-bg-card)]'}`}>
+                                <section className='flex w-full gap-2'>
                                     <div className=" flex-1 flex flex-col justify-between">
                                         <p className='text-[12px]'>Pay from <span className='text-button-primary font-bold pl-1'> Connect Wallet</span></p>
                                         <div className=" mt-auto relative">
@@ -122,9 +124,9 @@ const SwapPage = () => {
                                             <div className="border-b border-[var(--color-border-primary)]"></div>
                                         </div>
                                     </div>
-                                    <Card className={` flex flex-row items-center gap-2 p-4 text-base ${theme === 'light' ? 'bg-[#FCFDFE]' : ''}`}>
-                                        <Image src={theme === 'light' ? Assets.LightPlaceholder : Assets.TokenPlaceholder} alt='token' width={40} height={40} />
-                                        <p className='font-bold'>Token <br /> <span className='font-medium'><span className='font-normal'>on</span> Chain</span></p>
+                                    <Card className={`flex flex-row items-center gap-2 p-2 sm:p-4 text-base ${theme === 'light' ? 'bg-[#FCFDFE]' : ''}`}>
+                                        <Image src={theme === 'light' ? Assets.LightPlaceholder : Assets.TokenPlaceholder} alt='token' width={32} height={32} className='' />
+                                        <p className='font-bold text-sm sm:text-base'>Token <br /> <span className='font-medium'><span className='font-normal'>on</span> Chain</span></p>
                                     </Card>
                                 </section>
                                 <div className="flex justify-between items-center text-[var(--color-text-secondary)] text-[12px]">
@@ -134,11 +136,11 @@ const SwapPage = () => {
                             </Card>
 
                             {/* To */}
-                            <Card className={`flex py-4 px-6 gap-2 h-auto relative ${theme === 'light' ? 'bg-[#F2F9F9]' : 'bg-[var(--color-bg-card)]'}`}>
+                            <Card className={`flex py-3 sm:py-4 px-3 sm:px-6 gap-2 h-auto relative ${theme === 'light' ? 'bg-[#F2F9F9]' : 'bg-[var(--color-bg-card)]'}`}>
                                 <div className="absolute -top-1 cursor-pointer hover:opacity-80 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] rounded-[8px] w-fit p-2 z-50 border border-[var(--color-border-primary)]">
                                     <ArrowDownUp className='text-[var(--color-text-secondary)]' />
                                 </div>
-                                <section className=' flex w-full gap-2'>
+                                <section className='flex w-full gap-2'>
                                     <div className=" flex-1 flex flex-col justify-between">
                                         <p className='text-[12px]'>Receive to <span className='text-button-primary font-bold pl-1'> Connect Wallet</span></p>
                                         <div className=" mt-auto relative">
@@ -163,9 +165,9 @@ const SwapPage = () => {
                                             <div className="border-b border-[var(--color-border-primary)]"></div>
                                         </div>
                                     </div>
-                                    <Card className={` flex flex-row items-center gap-2 p-4 ${theme === 'light' ? 'bg-[#FCFDFE]' : ''}`}>
-                                        <Image src={theme === 'light' ? Assets.LightPlaceholder : Assets.TokenPlaceholder} alt='token' width={40} height={40} />
-                                        <p className='font-bold'>Token <br /> <span className='font-medium'><span className='font-normal'>on</span> Chain</span></p>
+                                    <Card className={`flex flex-row items-center gap-2 p-2 sm:p-4 ${theme === 'light' ? 'bg-[#FCFDFE]' : ''}`}>
+                                        <Image src={theme === 'light' ? Assets.LightPlaceholder : Assets.TokenPlaceholder} alt='token' width={32} height={32} className='sm:w-[40px] sm:h-[40px]' />
+                                        <p className='font-bold text-sm sm:text-base'>Token <br /> <span className='font-medium'><span className='font-normal'>on</span> Chain</span></p>
                                     </Card>
                                 </section>
                                 <div className="flex justify-between items-center text-[var(--color-text-secondary)] text-[12px]">
@@ -180,7 +182,7 @@ const SwapPage = () => {
                     </Card>
                 </div>
 
-                <Accordion type='single' collapsible className={`max-w-xl mx-auto mb-20 mt-6 ${theme === 'light' ? 'bg-[#FCFDFE]' : ''}`}>
+                <Accordion type='single' collapsible className={`max-w-xl mx-auto mb-10 sm:mb-20 mt-6 ${theme === 'light' ? 'bg-[#FCFDFE]' : ''}`}>
                     <AccordionItem value='item-1' className='text-[var(--color-text-primary)]'>
                         <AccordionTrigger className='text-[var(--color-text-secondary)]'>
                             Additional details

@@ -2,6 +2,21 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Custom breakpoint for extra small devices */
+@layer utilities {
+  .xs\:inline {
+    @media (min-width: 475px) {
+      display: inline;
+    }
+  }
+  
+  .xs\:block {
+    @media (min-width: 475px) {
+      display: block;
+    }
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 .font-manrope {
