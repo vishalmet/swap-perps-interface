@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis, MoveDown, ExternalLink } from 'lucide-react'
+import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis, MoveDown, ExternalLink, Upload, Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
@@ -11,7 +11,7 @@ import Footer from '@/components/Footer'
 const PerpsHeader = () => (
   <Card className='bg-transparent flex flex-row gap-0 rounded-[8px]'>
     <CardAction className='flex items-center gap-1 text-white/80 font-bold border-r border-white/10 p-4 cursor-pointer hover:bg-white/5 rounded-l-xl'>
-      <Image src={Assets.PerpPair} alt='perp pair' width={30} height={24} /> 
+      <Image src={Assets.PerpPair} alt='perp pair' width={30} height={24} />
       APT-PERP<ChevronDown />
     </CardAction>
     <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 hover:bg-white/5'>
@@ -53,10 +53,23 @@ const PerpsChart = () => (
 // Chart Component
 const BuyOrSell = () => (
   <div className="w-full">
-    <Card className='rounded-[8px] min-h-[200px] w-full flex justify-center items-center'>
-      <CardContent>Graph</CardContent>
-    </Card>
-  </div>
+    <Card className='rounded-[8px] bg-transparent w-full flex'>
+      <CardContent className=' px-2 py-2 flex justify-between items-center'>
+        <div className="">
+          <p className='text-white/60 text-[10px] flex items-center gap-1'>Profile 1 <ChevronDown size={10} /></p>
+          <p className='text-white/80 text-sm font-bold'>0.00 USDT</p>
+        </div>
+        <div className=" flex items-center gap-2">
+          <div className=" bg-[#1C1F20] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-[#2C3031]">
+            <Download className='text-white/60' size={16} />
+          </div>
+          <div className="bg-[#1C1F20] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-[#2C3031]">
+          <Upload className='text-white/60' size={16} />
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+  </div >
 )
 
 // Orderbook Component
@@ -219,9 +232,9 @@ const PerpsHistory = () => {
           <TabsList className="bg-transparent p-0 border-b border-white/10 flex justify-between items-center">
             <div className="flex">
               {tabItems.map((tab) => (
-                <TabsTrigger 
-                  key={tab.value} 
-                  value={tab.value} 
+                <TabsTrigger
+                  key={tab.value}
+                  value={tab.value}
                   className={tab.value === 'open-orders' ? 'rounded-tl-[8px]' : ''}
                 >
                   {tab.label}
@@ -267,12 +280,12 @@ const PerpsPage = () => {
               <Trades />
             </section>
           </section>
-          
+
           <section>
             <PerpsHistory />
           </section>
         </section>
-        
+
         {/* third column */}
         <section className='w-[20%]'>
           <BuyOrSell />
