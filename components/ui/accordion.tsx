@@ -19,7 +19,7 @@ function AccordionItem({
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("border-b last:border-b-0 bg-[#17181A] text-white/80 flex flex-col w-full rounded-xl border border-white/10 shadow-sm", className)}
+              className={cn("border-b last:border-b-0 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] flex flex-col w-full rounded-xl border border-[var(--color-border-primary)] shadow-sm", className)}
       {...props}
     />
   )
@@ -60,7 +60,7 @@ function AccordionContent({
       className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
       {...props}
     >
-      <div className="border-b border-white/10 w-[90%] mx-auto mb-3"></div>
+              <div className="border-b border-[var(--color-border-primary)] w-[90%] mx-auto mb-3"></div>
 
       <div className={cn("px-6 pb-6 text-sm", className)}>{children}</div>
     </AccordionPrimitive.Content>

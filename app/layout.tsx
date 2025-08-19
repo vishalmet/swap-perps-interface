@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from '@/components/Header';
+import Header from '@/components/Header'
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
   title: "Kanalabs - Advanced DeFi & Trading Platform",
@@ -54,9 +55,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased bg-[#080A0A] font-manrope font-mono">
-        <Header />
-        {children}
+      <body className="antialiased font-manrope font-mono">
+        <ThemeProvider defaultTheme="dark">
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

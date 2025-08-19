@@ -135,6 +135,8 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
   }
 }
 
@@ -160,7 +162,7 @@ body::-webkit-scrollbar-thumb {
   height: 16px;
   width: 16px;
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--color-border-secondary);
   border-radius: 4px;
   transition: all 0.2s ease;
   display: inline-block;
@@ -168,13 +170,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .checkmark:hover {
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: var(--color-border-hover);
 }
 
 /* Style the checkmark when the checkbox is checked */
 .hidden-checkbox:checked + .checkmark {
-  background-color: #00FFF0;
-  border-color: #00FFF0;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 /* Add checkmark icon when checked */

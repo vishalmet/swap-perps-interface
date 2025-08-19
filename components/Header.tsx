@@ -5,6 +5,7 @@ import { useRouter, usePathname } from 'next/navigation'
 import { Assets } from './Assets'
 import { Bell, BookOpen, ChartCandlestick, ChartColumnStacked, ChevronDown, Coins, Scale, Settings, UserCircle, Users } from 'lucide-react'
 import { Button } from './ui/button'
+import { ThemeToggle } from './ThemeToggle'
 
 const Header = () => {
     const router = useRouter()
@@ -43,14 +44,14 @@ const Header = () => {
             <section className=" flex items-center gap-4">
                 <Image src={Assets.KanaLogo} alt="Kanalabs" width={100} height={100} />
                 <div className="">
-                    <ul className='flex items-center gap-4 text-[12px] text-white font-bold cursor-pointer'>
+                    <ul className='flex items-center gap-4 text-[12px] text-[var(--color-text-primary)] font-bold cursor-pointer'>
                         {navigationItems.map((item) => (
                             <li 
                                 key={item.id}
                                 className={`flex items-center gap-1 transition-colors duration-200 ${
                                     activePage === item.id 
-                                        ? 'text-[#00FFF0]' 
-                                        : 'hover:text-[#00FFF0]'
+                                        ? 'text-[var(--color-primary)]' 
+                                        : 'hover:text-[var(--color-primary)]'
                                 }`}
                                 onClick={() => handleNavigation(item.id, item.path)}
                             >
@@ -58,7 +59,7 @@ const Header = () => {
                                 {item.label}
                             </li>
                         ))}
-                        <li className='flex items-center gap-1 hover:text-[#00FFF0] transition-colors duration-200'>
+                        <li className='flex items-center gap-1 hover:text-[var(--color-primary)] transition-colors duration-200'>
                             More <ChevronDown size={16} />
                         </li>
                     </ul>
@@ -68,7 +69,7 @@ const Header = () => {
                 {activePage === 'perps' ? (
                     // Show these 4 buttons only on perps page
                     <>
-                        <Button variant='secondary' size='lg' className='text-white/40'><Image src={Assets.Star} alt='star' width={16} height={16} />VIP<Image src={Assets.Info} alt='info' width={16} height={16} /></Button>
+                        <Button variant='secondary' size='lg' className='text-[var(--color-text-tertiary)]'><Image src={Assets.Star} alt='star' width={16} height={16} />VIP<Image src={Assets.Info} alt='info' width={16} height={16} /></Button>
                         <Button variant='secondary' size='lg' className=''><Image src={Assets.Win} alt='Coins' width={16} height={16} />Win $20</Button>
                         <Button variant='secondary' size='lg' className=''><Image src={Assets.Deposit} alt='Card' width={16} height={16} />Deposit</Button>
                         <Button variant='secondary' size='lg' className=''><Image src={Assets.User} alt='User' width={16} height={16} />Sign in</Button>
@@ -78,8 +79,9 @@ const Header = () => {
                     <Button variant='secondary' size='lg'><UserCircle size={16} />Connect Wallet</Button>
                 )}
                 
-                <Button variant='secondary' size='lg' className=' relative text-white'><Bell size={16} className='relative' /> <span className='absolute top-1 right-2 bg-[#FFB74D] rounded-full w-2 h-2 flex items-center justify-center'></span></Button>
-                <Button variant='secondary' size='lg' className='text-white'><Settings size={16} /></Button>
+                <Button variant='secondary' size='lg' className=' relative text-[var(--color-text-primary)]'><Bell size={16} className='relative' /> <span className='absolute top-1 right-2 bg-[#FFB74D] rounded-full w-2 h-2 flex items-center justify-center'></span></Button>
+                <ThemeToggle />
+                <Button variant='secondary' size='lg' className='text-[var(--color-text-primary)]'><Settings size={16} /></Button>
             </section>
         </header>
     )

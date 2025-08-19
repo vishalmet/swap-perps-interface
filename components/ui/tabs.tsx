@@ -43,8 +43,8 @@ function TabsTrigger({
       data-slot="tabs-trigger"
       className={cn(
         "py-2 px-6 text-xs transition-all duration-200 cursor-pointer whitespace-nowrap w-full",
-        "data-[state=active]:bg-[#1C1F20] data-[state=active]:border-b data-[state=active]:border-primary data-[state=active]:font-bold",
-        "data-[state=inactive]:hover:bg-white/5",
+        "data-[state=active]:bg-[var(--color-bg-accent)] data-[state=active]:border-b data-[state=active]:border-primary data-[state=active]:font-bold",
+        "data-[state=inactive]:hover:bg-[var(--color-hover-primary)]",
         className
       )}
       {...props}
