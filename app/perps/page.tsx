@@ -79,7 +79,7 @@ const PerpsPage = () => {
 
             {/* column 2 */}
             <section className='flex-1 space-y-2'>
-              <Card className='rounded-[8px] h-[63%] w-full bg-transparent flex flex-col'>
+                             <Card className='rounded-[8px] h-[65%] w-full bg-transparent flex flex-col'>
                 <CardHeader className='text-sm py-2 px-3 border-b border-white/10 font-bold flex-shrink-0'>Orderbook</CardHeader>
 
                 {/* Headers - Fixed */}
@@ -92,86 +92,86 @@ const PerpsPage = () => {
                 </div>
 
                 {/* Scrollable Orders Container */}
-                <div className='flex-1 flex flex-col'>
-                                     {/* Sell Orders Section - Scrollable */}
-                   <div className='flex-1 min-h-[25%] max-h-[25%] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
-                    {[
-                    { price: '22.025', size: '307.825', sum: '307.825' },
-                    { price: '22.000', size: '45.082', sum: '352.907' },
-                    { price: '21.990', size: '0.114', sum: '353.021' },
-                    { price: '21.980', size: '0.500', sum: '353.521' },
-                    { price: '21.975', size: '1.200', sum: '354.721' },
-                    { price: '21.970', size: '0.800', sum: '355.521' },
-                    { price: '21.965', size: '0.300', sum: '355.821' },
-                    { price: '21.960', size: '0.600', sum: '356.421' },
-                    { price: '21.955', size: '0.400', sum: '356.821' },
-                    { price: '21.950', size: '0.700', sum: '357.521' },
-                    { price: '21.945', size: '0.250', sum: '357.771' },
-                    { price: '21.940', size: '0.350', sum: '358.121' },
-                    { price: '21.935', size: '0.450', sum: '358.571' },
-                    { price: '21.930', size: '0.550', sum: '359.121' },
-                    { price: '21.925', size: '0.650', sum: '359.771' }
-                  ].map((order, index) => (
-                    <div key={`ask-${index}`} className='flex text-[10px] px-3 py-0.5 hover:bg-[#EF5350]/20 cursor-pointer relative'>
-                      <div className='w-1/3 text-[#EF5350]'>{order.price}</div>
-                      <div className='w-1/3 text-end text-white/80'>{order.size}</div>
-                      <div className='w-1/3 text-end text-white/80'>{order.sum}</div>
-                      {/* Red stair-like background - decreasing from top, covering Size and Sum columns */}
-                      <div
-                        className='absolute right-0 top-0 bottom-0 bg-[#EF5350]/20'
-                        style={{
-                          width: `${Math.max(33.33, 66.67 - (Math.floor(index / 2) * 10))}%`
-                        }}
-                      />
+                  <div className='flex-1 flex flex-col'>
+                                                                                                                                                           {/* Sell Orders Section - Scrollable */}
+                      <div className='h-[150px] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
+                      {[
+                      { price: '22.025', size: '307.825', sum: '307.825' },
+                      { price: '22.000', size: '45.082', sum: '352.907' },
+                      { price: '21.990', size: '0.114', sum: '353.021' },
+                      { price: '21.980', size: '0.500', sum: '353.521' },
+                      { price: '21.975', size: '1.200', sum: '354.721' },
+                      { price: '21.970', size: '0.800', sum: '355.521' },
+                      { price: '21.965', size: '0.300', sum: '355.821' },
+                      { price: '21.960', size: '0.600', sum: '356.421' },
+                      { price: '21.955', size: '0.400', sum: '356.821' },
+                      { price: '21.950', size: '0.700', sum: '357.521' },
+                      { price: '21.945', size: '0.250', sum: '357.771' },
+                      { price: '21.940', size: '0.350', sum: '358.121' },
+                      { price: '21.935', size: '0.450', sum: '358.571' },
+                      { price: '21.930', size: '0.550', sum: '359.121' },
+                      { price: '21.925', size: '0.650', sum: '359.771' }
+                    ].map((order, index) => (
+                      <div key={`ask-${index}`} className='flex text-[10px] px-3 py-0.5 hover:bg-[#EF5350]/20 cursor-pointer relative'>
+                        <div className='w-1/3 text-[#EF5350]'>{order.price}</div>
+                        <div className='w-1/3 text-end text-white/80'>{order.size}</div>
+                        <div className='w-1/3 text-end text-white/80'>{order.sum}</div>
+                        {/* Red stair-like background - decreasing from top, covering Size and Sum columns */}
+                        <div
+                          className='absolute right-0 top-0 bottom-0 bg-[#EF5350]/20'
+                          style={{
+                            width: `${Math.max(33.33, 66.67 - (Math.floor(index / 2) * 10))}%`
+                          }}
+                        />
+                      </div>
+                    ))}
                     </div>
-                  ))}
-                  </div>
 
-                  {/* Current Market Price - Fixed Center */}
-                  <div className='flex items-center py-2 px-3 flex-shrink-0'>
-                    <span className='text-[#EF5350] font-bold text-lg'>2345.5</span>
-                    <svg className='w-4 h-4 text-[#EF5350] ml-1' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 14l-7 7m0 0l-7-7m7 7V3' />
-                    </svg>
-                    <span className='text-white/60 text-base ml-2 underline'>2345.6</span>
-                  </div>
-
-                                     {/* Buy Orders Section - Scrollable */}
-                   <div className='flex-1 min-h-[25%] max-h-[25%] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
-                    {[
-                    { price: '21.920', size: '0.750', sum: '0.750' },
-                    { price: '21.915', size: '0.850', sum: '1.600' },
-                    { price: '21.910', size: '0.950', sum: '2.550' },
-                    { price: '21.905', size: '1.050', sum: '3.600' },
-                    { price: '21.900', size: '1.150', sum: '4.750' },
-                    { price: '21.895', size: '1.250', sum: '6.000' },
-                    { price: '21.890', size: '1.350', sum: '7.350' },
-                    { price: '21.885', size: '1.450', sum: '8.800' },
-                    { price: '21.880', size: '1.550', sum: '10.350' },
-                    { price: '21.875', size: '1.650', sum: '12.000' },
-                    { price: '21.870', size: '1.750', sum: '13.750' },
-                    { price: '21.865', size: '1.850', sum: '15.600' },
-                    { price: '21.860', size: '1.950', sum: '17.550' },
-                    { price: '21.855', size: '2.050', sum: '19.600' },
-                    { price: '21.850', size: '2.150', sum: '21.750' }
-                  ].map((order, index) => (
-                    <div key={`bid-${index}`} className='flex text-[10px] px-3 py-0.5 hover:bg-[#66BB6A]/20 cursor-pointer relative'>
-                      <div className='w-1/3 text-[#66BB6A]'>{order.price}</div>
-                      <div className='w-1/3 text-end text-white/80'>{order.size}</div>
-                      <div className='w-1/3 text-end text-white/80'>{order.sum}</div>
-                      {/* Green stair-like background - increasing from top by 2 rows, covering Size and Sum columns */}
-                      <div
-                        className='absolute right-0 top-0 bottom-0 bg-[#66BB6A]/20'
-                        style={{
-                          width: `${Math.min(66.67, 33.33 + (Math.floor(index / 2) * 10))}%`
-                        }}
-                      />
+                    {/* Current Market Price - Fixed Center */}
+                    <div className='flex items-center py-2 px-3 flex-shrink-0'>
+                      <span className='text-[#EF5350] font-bold text-lg'>2345.5</span>
+                      <svg className='w-4 h-4 text-[#EF5350] ml-1' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 14l-7 7m0 0l-7-7m7 7V3' />
+                      </svg>
+                      <span className='text-white/60 text-base ml-2 underline'>2345.6</span>
                     </div>
-                  ))}
+
+                                                                                                                                                           {/* Buy Orders Section - Scrollable */}
+                      <div className='h-[150px] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
+                      {[
+                      { price: '21.920', size: '0.750', sum: '0.750' },
+                      { price: '21.915', size: '0.850', sum: '1.600' },
+                      { price: '21.910', size: '0.950', sum: '2.550' },
+                      { price: '21.905', size: '1.050', sum: '3.600' },
+                      { price: '21.900', size: '1.150', sum: '4.750' },
+                      { price: '21.895', size: '1.250', sum: '6.000' },
+                      { price: '21.890', size: '1.350', sum: '7.350' },
+                      { price: '21.885', size: '1.450', sum: '8.800' },
+                      { price: '21.880', size: '1.550', sum: '10.350' },
+                      { price: '21.875', size: '1.650', sum: '12.000' },
+                      { price: '21.870', size: '1.750', sum: '13.750' },
+                      { price: '21.865', size: '1.850', sum: '15.600' },
+                      { price: '21.860', size: '1.950', sum: '17.550' },
+                      { price: '21.855', size: '2.050', sum: '19.600' },
+                      { price: '21.850', size: '2.150', sum: '21.750' }
+                    ].map((order, index) => (
+                      <div key={`bid-${index}`} className='flex text-[10px] px-3 py-0.5 hover:bg-[#66BB6A]/20 cursor-pointer relative'>
+                        <div className='w-1/3 text-[#66BB6A]'>{order.price}</div>
+                        <div className='w-1/3 text-end text-white/80'>{order.size}</div>
+                        <div className='w-1/3 text-end text-white/80'>{order.sum}</div>
+                        {/* Green stair-like background - increasing from top by 2 rows, covering Size and Sum columns */}
+                        <div
+                          className='absolute right-0 top-0 bottom-0 bg-[#66BB6A]/20'
+                          style={{
+                            width: `${Math.min(66.67, 33.33 + (Math.floor(index / 2) * 10))}%`
+                          }}
+                        />
+                      </div>
+                    ))}
+                    </div>
                   </div>
-                </div>
               </Card>
-              <Card className='rounded-[8px] h-[31%] w-full flex justify-center items-center bg-transparent'>
+              <Card className='rounded-[8px] h-[34%] w-full flex justify-center items-center bg-transparent'>
 
               </Card>
             </section>
