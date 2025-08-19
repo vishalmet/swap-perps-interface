@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { ArrowDownUp, LayoutGrid, Shuffle, CircleX } from 'lucide-react'
+import { ArrowDownUp, LayoutGrid, Shuffle, CircleX, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
@@ -194,10 +194,7 @@ const SwapPage = () => {
                             </div>
                             <div className='flex items-center gap-2 text-[#00FFF0] cursor-pointer hover:opacity-80'>
                                 <span className='text-sm font-medium'>More routes</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M7 7h10v10" />
-                                    <path d="M7 17 17 7" />
-                                </svg>
+                                <ExternalLink className='w-[16px] h-[16px] text-primary' />
                             </div>
                         </div>
                     </AccordionContent>
