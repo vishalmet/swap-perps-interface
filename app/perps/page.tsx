@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis } from 'lucide-react'
+import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis, MoveDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
@@ -72,25 +72,85 @@ const PerpsPage = () => {
                 <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>24h volume</span><br /><span className='text-sm text-white/80 font-bold'>245,694,542</span></CardAction>
                 <CardAction className='py-1 px-4 w-[180px] hover:bg-white/5 rounded-r-xl flex justify-between items-center gap-2'> <span><span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Funding</span><br /><span className='text-sm font-bold text-[#FFB74D]'>0.012%</span></span> <span><span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Next Funding</span><br /><span className='text-sm text-white/80 font-bold'>00:23:34</span></span></CardAction>
               </Card>
-              <Card className='rounded-[8px] min-h-[450px] flex justify-center items-center'>
+              <Card className='rounded-[8px] min-h-[550px] flex justify-center items-center'>
                 <CardContent>Graph</CardContent>
               </Card>
             </section>
 
             {/* column 2 */}
             <section className='flex-1 space-y-2'>
-              <Card className='rounded-[8px] h-[65%] w-full bg-transparent'>
+              <Card className='rounded-[8px] h-[400px] w-full bg-transparent gap-0'>
                 <CardHeader className='text-sm py-2 px-3 border-b border-white/10 font-bold'>Orderbook</CardHeader>
-                <CardContent className='px-0'>
-                  <div className='flex flex-col gap-2'>
-                    <div className='flex flex-row gap-2'>
-                      <div className='w-10 h-10 bg-white/10 rounded-full'></div>
-                    </div>
+                <CardContent className='px-0 text-[10px] font-bold p-2'>
+                  <div className="flex ">
+                    <p className='w-1/3'>Price <br /> <span className='text-white/40'>(eUSDT)</span></p>
+                    <p className='w-1/3 text-end'>Size <br /> <span className='text-white/40'>(eAPT)</span></p>
+                    <p className='w-1/3 text-end'>Sum <br /> <span className='text-white/40'>(eAPT)</span></p>
+                  </div>
+                </CardContent>
+                <CardContent className='px-0 text-[10px] h-full overflow-y-auto scrollbar-hide'>
+                  <div className="flex hover:bg-[#EF5350]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#EF5350]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
+                  </div>
+                  <div className="flex hover:bg-[#EF5350]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#EF5350]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
+                  </div>
+                  <div className="flex hover:bg-[#EF5350]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#EF5350]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
+                  </div>
+                  <div className="flex hover:bg-[#EF5350]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#EF5350]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
+                  </div>
+                  <div className="flex hover:bg-[#EF5350]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#EF5350]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
+                  </div>
+                  <div className="flex hover:bg-[#EF5350]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#EF5350]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
+                  </div>
+                  <div className=" px-2 py-1">
+                    <p className='text-lg text-[#EF5350] flex items-center'>2345.5 <MoveDown size={16} /> <span className='text-white/60 underline pl-2 text-base'>2345.6</span></p>
+                  </div>
+                  <div className="flex hover:bg-[#66BB6A]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#66BB6A]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
+                  </div>
+                  <div className="flex hover:bg-[#66BB6A]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#66BB6A]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
+                  </div>
+                  <div className="flex hover:bg-[#66BB6A]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#66BB6A]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
+                  </div>
+                  <div className="flex hover:bg-[#66BB6A]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#66BB6A]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
+                  </div>
+                  <div className="flex hover:bg-[#66BB6A]/10 py-1 px-2">
+                    <p className='w-1/3 text-[#66BB6A]'>22.025</p>
+                    <p className='w-1/3 text-white/60 text-end'>307.825</p>
+                    <p className='w-1/3 text-white/60 text-end'>22.025</p>
                   </div>
                 </CardContent>
               </Card>
               <Card className='rounded-[8px] h-[33.5%] w-full flex justify-center items-center bg-transparent'>
-                
+
               </Card>
             </section>
           </section>
