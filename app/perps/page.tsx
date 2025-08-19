@@ -266,7 +266,7 @@ const BuyOrSell = () => {
                 <p className='text-white/60'>Sell <span className='text-white/80 font-bold pl-2'>0.049 BTC</span></p>
               </div>
 
-              <Button variant='outline' size='default' className='w-full'>
+              <Button variant='outline' size='default' className='w-full font-bold'>
                 Sign in
               </Button>
             </TabsContent>
