@@ -1,5 +1,6 @@
-import React from 'react'
-import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis, MoveDown, ExternalLink, Upload, Download } from 'lucide-react'
+'use client'
+import React, { useState } from 'react'
+import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis, MoveDown, ExternalLink, Upload, Download, ChevronRight, ArrowRightLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
@@ -52,67 +53,114 @@ const PerpsChart = () => (
 
 // Chart Component
 const BuyOrSell = () => {
+  const [orderType, setOrderType] = useState('limit')
+
   const tabItems = [
     { value: "open", label: "Open" },
     { value: "close", label: "Close" }
   ]
 
   return (
-  <div className="w-full space-y-2">
-    <Card className='rounded-[8px] bg-transparent w-full flex'>
-      <CardContent className=' px-2 py-2 flex justify-between items-center'>
-        <div className="">
-          <p className='text-white/60 text-[10px] flex items-center gap-1'>Profile 1 <ChevronDown size={10} /></p>
-          <p className='text-white/80 text-sm font-bold'>0.00 USDT</p>
-        </div>
-        <div className=" flex items-center gap-2">
-          <div className=" bg-[#1C1F20] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-white/5">
-            <Download className='text-white/60' size={16} />
+    <div className="w-full space-y-2">
+      <Card className='rounded-[8px] bg-transparent w-full flex'>
+        <CardContent className=' px-2 py-2 flex justify-between items-center'>
+          <div className="">
+            <p className='text-white/60 text-[10px] flex items-center gap-1'>Profile 1 <ChevronDown size={10} /></p>
+            <p className='text-white/80 text-sm font-bold'>0.00 USDT</p>
           </div>
-          <div className="bg-[#1C1F20] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-white/5">
-            <Upload className='text-white/60' size={16} />
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-
-    <div className=" flex gap-2">
-      <Card className='rounded-[8px] bg-transparent w-full flex p-2 text-center text-sm text-white font-bold hover:bg-white/5 cursor-pointer'>
-        <p>Isolated</p>
-      </Card>
-      <Card className='rounded-[8px] bg-transparent w-full flex p-2 text-center text-sm text-white font-bold hover:bg-white/5 cursor-pointer'>
-        <p>Hedge</p>
-      </Card>
-    </div>
-
-    <Card className='rounded-[8px] bg-transparent w-full flex'>
-      <Tabs defaultValue="open" className="w-full">
-        <TabsList className="bg-transparent p-0 border-b border-white/10 flex justify-between items-center w-full">
-          <div className="flex justify-between w-full">
-            {tabItems.map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                className={tab.value === 'open' ? 'rounded-tl-[8px]' : 'rounded-tr-[8px]'}
-              >
-                {tab.label}
-              </TabsTrigger>
-            ))}
-          </div>
-        </TabsList>
-
-        {tabItems.map((tab) => (
-          <TabsContent key={tab.value} value={tab.value} className="min-h-48 flex justify-center items-center">
-            <div className="p-4">
-              <p className="text-white/60 text-[10px]">Sign in to see your {tab.label}</p>
-              <p className='text-primary font-bold text-center text-xs hover:underline cursor-pointer'>Sign in</p>
+          <div className=" flex items-center gap-2">
+            <div className=" bg-[#1C1F20] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-white/5">
+              <Download className='text-white/60' size={16} />
             </div>
-          </TabsContent>
-        ))}
-      </Tabs>
-    </Card>
+            <div className="bg-[#1C1F20] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-white/5">
+              <Upload className='text-white/60' size={16} />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-  </div >
+      <div className=" flex gap-2">
+        <Card className='rounded-[8px] bg-transparent w-full flex p-2 text-center text-sm text-white font-bold hover:bg-white/5 cursor-pointer'>
+          <p>Isolated</p>
+        </Card>
+        <Card className='rounded-[8px] bg-transparent w-full flex p-2 text-center text-sm text-white font-bold hover:bg-white/5 cursor-pointer'>
+          <p>Hedge</p>
+        </Card>
+      </div>
+
+      <Card className='rounded-[8px] bg-transparent w-full flex'>
+        <Tabs defaultValue="open" className="w-full">
+          <TabsList className="bg-transparent p-0 border-b border-white/10 flex justify-between items-center w-full">
+            <div className="flex justify-between w-full">
+              {tabItems.map((tab) => (
+                <TabsTrigger
+                  key={tab.value}
+                  value={tab.value}
+                  className={tab.value === 'open' ? 'rounded-tl-[8px]' : 'rounded-tr-[8px]'}
+                >
+                  {tab.label}
+                </TabsTrigger>
+              ))}
+            </div>
+          </TabsList>
+
+          {tabItems.map((tab) => (
+            <TabsContent key={tab.value} value={tab.value} className="min-h-48 px-2 pb-2 space-y-2">
+              <section className=" flex items-center justify-between text-base">
+                <div className=" flex items-center gap-2 pl-6 pb-2">
+                  <div
+                    onClick={() => setOrderType('market')}
+                    className={`px-3 py-2 text-[12px] font-bold cursor-pointer transition-all duration-200 ${orderType === 'market'
+                      ? ' text-white border-b-2 border-primary'
+                      : 'text-white/60'
+                      }`}>
+                    Market
+                  </div>
+                  <div
+                    onClick={() => setOrderType('limit')}
+                    className={`px-3 py-2 text-[12px] font-bold cursor-pointer transition-all duration-200 ${orderType === 'limit'
+                      ? ' text-white border-b-2 border-primary'
+                      : 'text-white/60 '
+                      }`}>
+                    Limit
+                  </div>
+                </div>
+                <p className='text-primary bg-[#1C1F20] px-2 py-1 rounded-[8px] text-[12px] font-bold flex items-center gap-1 hover:bg-white/5 cursor-pointer'>2x <ChevronRight size={12} /></p>
+              </section>
+
+              <Card className='rounded-[8px] w-full flex'>
+                <CardContent className='p-2 space-y-2'>
+                  <div className=" flex justify-between px-2">
+                    <p className='text-white/60 text-[10px]'>Price</p>
+                    <p className='text-primary text-[10px] font-bold'>Mid</p>
+                  </div>
+                  <Card className='rounded-[8px] bg-[#080A0A] w-full flex p-2'>
+                    <div className='flex items-center justify-between'>
+                      <input type="text" placeholder='0.00' className='bg-transparent text-sm outline-none text-white/80 placeholder:text-white/80' />
+                      <p className='text-white font-bold text-[10px]'>USDT</p>
+                    </div>
+                  </Card>
+                </CardContent>
+              </Card>
+              <Card className='rounded-[8px] w-full flex'>
+                <CardContent className='p-2 space-y-2'>
+                  <div className=" flex px-2">
+                    <p className='text-white/60 text-[10px]'>Amount</p>
+                  </div>
+                  <Card className='rounded-[8px] bg-[#080A0A] w-full flex p-2'>
+                    <div className='flex items-center justify-between'>
+                      <input type="text" placeholder='0.00' className='bg-transparent text-sm outline-none text-white/80 placeholder:text-white/80' />
+                      <p className='text-white font-bold flex items-center gap-1 cursor-pointer text-[10px]'>APT <ArrowRightLeft size={12} /></p>
+                    </div> 
+                  </Card>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          ))}
+        </Tabs>
+      </Card>
+
+    </div >
   )
 }
 
@@ -156,7 +204,7 @@ const Orderbook = () => {
 
   return (
     <Card className='rounded-[8px] h-[65%] w-full bg-transparent flex flex-col'>
-      <CardHeader className='text-sm py-2 px-3 border-b border-white/10 font-bold flex-shrink-0'>
+      <CardHeader className='text-sm py-2 px-3 border-b border-white/10 font-bold flex-shrink-0 text-white'>
         Orderbook
       </CardHeader>
 
@@ -233,7 +281,7 @@ const Trades = () => {
 
   return (
     <Card className='rounded-[8px] h-[34%] w-full bg-transparent'>
-      <CardHeader className='text-sm py-2 px-3 border-b border-white/10 font-bold flex-shrink-0'>
+      <CardHeader className='text-sm py-2 px-3 border-b border-white/10 font-bold flex-shrink-0 text-white'>
         Trades
       </CardHeader>
       <CardContent className='flex px-2 py-1 bg-[#121414] border-b border-white/10'>
