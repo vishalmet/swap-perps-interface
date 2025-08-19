@@ -9,6 +9,8 @@ import Solana from "../app/assets/icons/solana.svg";
 import Sui from "../app/assets/icons/sui.svg";
 import ZkSync from "../app/assets/icons/zksync.svg";
 
+import PerpPair from "../app/assets/icons/pair.svg";
+
 import Refresh from "../app/assets/icons/refresh.svg";
 import Settings from "../app/assets/icons/settings.svg";
 import TokenPlaceholder from "../app/assets/icons/token-placeholder.svg";
@@ -41,4 +43,5 @@ export const Assets = {
     Deposit,
     Win,
     User,
+    PerpPair,
 };

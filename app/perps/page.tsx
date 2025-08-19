@@ -1,41 +1,44 @@
 import React from 'react'
-import { TrendingUp, TrendingDown, BarChart3, BookOpen } from 'lucide-react'
+import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Card, CardAction, CardContent } from '@/components/ui/card'
+import { Assets } from '@/components/Assets'
+import Image from 'next/image'
 
 const PerpsPage = () => {
   const tradingPairs = [
-    { 
-      symbol: 'ETH/USD', 
-      price: '$2,450.50', 
-      change: '+2.45%', 
-      volume: '$125.4M', 
+    {
+      symbol: 'ETH/USD',
+      price: '$2,450.50',
+      change: '+2.45%',
+      volume: '$125.4M',
       trend: 'up',
       high: '$2,480.00',
       low: '$2,420.00'
     },
-    { 
-      symbol: 'BTC/USD', 
-      price: '$48,250.00', 
-      change: '-1.23%', 
-      volume: '$89.2M', 
+    {
+      symbol: 'BTC/USD',
+      price: '$48,250.00',
+      change: '-1.23%',
+      volume: '$89.2M',
       trend: 'down',
       high: '$48,800.00',
       low: '$47,900.00'
     },
-    { 
-      symbol: 'SOL/USD', 
-      price: '$85.25', 
-      change: '+5.67%', 
-      volume: '$45.8M', 
+    {
+      symbol: 'SOL/USD',
+      price: '$85.25',
+      change: '+5.67%',
+      volume: '$45.8M',
       trend: 'up',
       high: '$86.00',
       low: '$84.50'
     },
-    { 
-      symbol: 'MATIC/USD', 
-      price: '$0.92', 
-      change: '+0.87%', 
-      volume: '$23.1M', 
+    {
+      symbol: 'MATIC/USD',
+      price: '$0.92',
+      change: '+0.87%',
+      volume: '$23.1M',
       trend: 'up',
       high: '$0.93',
       low: '$0.91'
@@ -52,165 +55,49 @@ const PerpsPage = () => {
   ]
 
   return (
-    <div className='p-4 px-16'>
-      <div className='max-w-7xl mx-auto p-6 space-y-6'>
-        <div className='text-center space-y-2'>
-          <h1 className='text-3xl font-bold text-white'>Perpetuals</h1>
-          <p className='text-gray-400'>Trade with leverage up to 100x</p>
-        </div>
+    <div className='p-4 '>
+      <main className=''>
+        {/* column 1 & 2 */}
+        <section>
+          {/* column 1 */}
+          <section className='w-[80%] h-fit flex space-x-2'>
+            <section className='w-fit space-y-2'>
+              <Card className='bg-transparent flex flex-row gap-0 rounded-[8px]'>
+                <CardAction className='flex items-center gap-1 text-white/80 font-bold border-r border-white/10 p-4 cursor-pointer hover:bg-white/5 rounded-l-xl'> <Image src={Assets.PerpPair} alt='perp pair' width={30} height={24} /> APT-PERP<ChevronDown /></CardAction>
+                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 cursor-pointer hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Mark</span><br /><span className='text-sm text-white/80 font-bold'>$7.32</span></CardAction>
+                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 cursor-pointer hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>24h change</span><br /><span className='text-sm text-[#66BB6A] font-bold'>+2 %</span></CardAction>
+                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 cursor-pointer hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Oracle Price</span><br /><span className='text-sm text-white/80 font-bold'>$11.1</span></CardAction>
+                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 cursor-pointer hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>24h volume</span><br /><span className='text-sm text-white/80 font-bold'>245,694,542</span></CardAction>
+                <CardAction className='py-1 px-4 w-[180px] cursor-pointer hover:bg-white/5 rounded-r-xl flex justify-between items-center gap-2'> <span><span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Funding</span><br /><span className='text-sm font-bold text-[#FFB74D]'>0.012%</span></span> <span><span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Next Funding</span><br /><span className='text-sm text-white/80 font-bold'>00:23:34</span></span></CardAction>
+              </Card>
+              <Card className='rounded-[8px] min-h-[450px] flex justify-center items-center'>
+                <CardContent>Graph</CardContent>
+              </Card>
+            </section>
 
-        {/* Trading Pairs Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-          {tradingPairs.map((pair, index) => (
-            <div key={index} className='bg-[#1C1F20] rounded-2xl p-4 border border-[#FFFFFF]/10 hover:border-[#00FFF0]/50 transition-colors cursor-pointer'>
-              <div className='flex justify-between items-start mb-3'>
-                <h3 className='text-lg font-bold text-white'>{pair.symbol}</h3>
-                {pair.trend === 'up' ? (
-                  <TrendingUp size={20} className='text-green-500' />
-                ) : (
-                  <TrendingDown size={20} className='text-red-500' />
-                )}
-              </div>
-              <div className='space-y-2'>
-                <p className='text-2xl font-bold text-white'>{pair.price}</p>
-                <p className={`text-sm font-medium ${pair.trend === 'up' ? 'text-green-500' : 'text-red-500'}`}>
-                  {pair.change}
-                </p>
-                <div className='text-xs text-gray-400 space-y-1'>
-                  <p>24h High: {pair.high}</p>
-                  <p>24h Low: {pair.low}</p>
-                  <p>Volume: {pair.volume}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+            {/* column 2 */}
+            <section className='flex-1'>
+              <Card className='rounded-[8px] h-full w-full flex justify-center items-center'>
+                <CardContent>
+                  <div className='flex flex-col gap-2'>
+                    <div className='flex flex-row gap-2'>
+                      <div className='w-10 h-10 bg-white/10 rounded-full'></div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+          </section>
+          {/* terminal kinda UI */}
+          <section>
 
-        {/* Main Trading Interface */}
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
-          {/* Chart Area */}
-          <div className='lg:col-span-2 bg-[#1C1F20] rounded-2xl p-6 border border-[#FFFFFF]/10'>
-            <div className='flex justify-between items-center mb-4'>
-              <h3 className='text-xl font-bold text-white'>ETH/USD Chart</h3>
-              <div className='flex gap-2'>
-                <Button variant="outline" size="sm">1H</Button>
-                <Button variant="outline" size="sm">4H</Button>
-                <Button variant="outline" size="sm" className='bg-[#00FFF0] text-black'>1D</Button>
-                <Button variant="outline" size="sm">1W</Button>
-              </div>
-            </div>
-            <div className='h-80 bg-[#0E0E0E] rounded-xl flex items-center justify-center'>
-              <div className='text-center text-gray-400'>
-                <BarChart3 size={48} className='mx-auto mb-2' />
-                <p>Chart coming soon</p>
-              </div>
-            </div>
-          </div>
+          </section>
+        </section>
+        {/* third column */}
+        <section>
 
-          {/* Order Book */}
-          <div className='bg-[#1C1F20] rounded-2xl p-6 border border-[#FFFFFF]/10'>
-            <div className='flex items-center gap-2 mb-4'>
-              <BookOpen size={20} className='text-[#00FFF0]' />
-              <h3 className='text-xl font-bold text-white'>Order Book</h3>
-            </div>
-            <div className='space-y-1'>
-              {orderBook.map((order, index) => (
-                <div key={index} className={`flex justify-between text-sm p-2 rounded ${
-                  order.side === 'bid' ? 'bg-green-500/10' : 'bg-red-500/10'
-                }`}>
-                  <span className={`font-medium ${order.side === 'bid' ? 'text-green-500' : 'text-red-500'}`}>
-                    {order.price}
-                  </span>
-                  <span className='text-white'>{order.size}</span>
-                  <span className='text-gray-400'>{order.total}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Trading Form */}
-        <div className='bg-[#1C1F20] rounded-2xl p-6 border border-[#FFFFFF]/10'>
-          <h3 className='text-xl font-bold text-white mb-4'>Place Order</h3>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            {/* Buy Order */}
-            <div className='space-y-4'>
-              <h4 className='text-lg font-semibold text-green-500'>Buy ETH</h4>
-              <div className='space-y-3'>
-                <div>
-                  <label className='block text-sm text-gray-400 mb-1'>Price (USD)</label>
-                  <input 
-                    type="text" 
-                    placeholder="0.00" 
-                    className='w-full bg-[#0E0E0E] rounded-lg p-3 text-white border border-[#FFFFFF]/10 focus:border-[#00FFF0] outline-none'
-                    defaultValue="2,450.50"
-                  />
-                </div>
-                <div>
-                  <label className='block text-sm text-gray-400 mb-1'>Size (ETH)</label>
-                  <input 
-                    type="text" 
-                    placeholder="0.00" 
-                    className='w-full bg-[#0E0E0E] rounded-lg p-3 text-white border border-[#FFFFFF]/10 focus:border-[#00FFF0] outline-none'
-                  />
-                </div>
-                <div>
-                  <label className='block text-sm text-gray-400 mb-1'>Leverage</label>
-                  <select className='w-full bg-[#0E0E0E] rounded-lg p-3 text-white border border-[#FFFFFF]/10 focus:border-[#00FFF0] outline-none'>
-                    <option>1x</option>
-                    <option>5x</option>
-                    <option>10x</option>
-                    <option>25x</option>
-                    <option>50x</option>
-                    <option>100x</option>
-                  </select>
-                </div>
-                <Button variant="default" size="default" className='w-full bg-green-600 hover:bg-green-700'>
-                  Buy ETH
-                </Button>
-              </div>
-            </div>
-
-            {/* Sell Order */}
-            <div className='space-y-4'>
-              <h4 className='text-lg font-semibold text-red-500'>Sell ETH</h4>
-              <div className='space-y-3'>
-                <div>
-                  <label className='block text-sm text-gray-400 mb-1'>Price (USD)</label>
-                  <input 
-                    type="text" 
-                    placeholder="0.00" 
-                    className='w-full bg-[#0E0E0E] rounded-lg p-3 text-white border border-[#FFFFFF]/10 focus:border-[#00FFF0] outline-none'
-                    defaultValue="2,450.50"
-                  />
-                </div>
-                <div>
-                  <label className='block text-sm text-gray-400 mb-1'>Size (ETH)</label>
-                  <input 
-                    type="text" 
-                    placeholder="0.00" 
-                    className='w-full bg-[#0E0E0E] rounded-lg p-3 text-white border border-[#FFFFFF]/10 focus:border-[#00FFF0] outline-none'
-                  />
-                </div>
-                <div>
-                  <label className='block text-sm text-gray-400 mb-1'>Leverage</label>
-                  <select className='w-full bg-[#0E0E0E] rounded-lg p-3 text-white border border-[#FFFFFF]/10 focus:border-[#00FFF0] outline-none'>
-                    <option>1x</option>
-                    <option>5x</option>
-                    <option>10x</option>
-                    <option>25x</option>
-                    <option>50x</option>
-                    <option>100x</option>
-                  </select>
-                </div>
-                <Button variant="default" size="default" className='w-full bg-red-600 hover:bg-red-700'>
-                  Sell ETH
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   )
 }
