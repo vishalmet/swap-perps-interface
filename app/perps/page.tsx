@@ -52,7 +52,7 @@ const PerpsChart = () => (
 
 // Chart Component
 const BuyOrSell = () => (
-  <div className="w-full">
+  <div className="w-full space-y-2">
     <Card className='rounded-[8px] bg-transparent w-full flex'>
       <CardContent className=' px-2 py-2 flex justify-between items-center'>
         <div className="">
@@ -60,15 +60,25 @@ const BuyOrSell = () => (
           <p className='text-white/80 text-sm font-bold'>0.00 USDT</p>
         </div>
         <div className=" flex items-center gap-2">
-          <div className=" bg-[#1C1F20] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-[#2C3031]">
+          <div className=" bg-[#1C1F20] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-white/5">
             <Download className='text-white/60' size={16} />
           </div>
-          <div className="bg-[#1C1F20] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-[#2C3031]">
-          <Upload className='text-white/60' size={16} />
+          <div className="bg-[#1C1F20] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-white/5">
+            <Upload className='text-white/60' size={16} />
+          </div>
         </div>
-      </div>
-    </CardContent>
-  </Card>
+      </CardContent>
+    </Card>
+
+    <div className=" flex gap-2">
+      <Card className='rounded-[8px] bg-transparent w-full flex p-2 text-center text-sm text-white font-bold hover:bg-white/5 cursor-pointer'>
+        <p>Isolated</p>
+      </Card>
+      <Card className='rounded-[8px] bg-transparent w-full flex p-2 text-center text-sm text-white font-bold hover:bg-white/5 cursor-pointer'>
+        <p>Hedge</p>
+      </Card>
+    </div>
+
   </div >
 )
 
