@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { ArrowDownUp, LayoutGrid, Shuffle } from 'lucide-react'
+import { ArrowDownUp, LayoutGrid, Shuffle, CircleX } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
@@ -11,6 +11,8 @@ import Footer from '@/components/Footer'
 const SwapPage = () => {
     const [activeTab, setActiveTab] = useState<'same-chain' | 'cross-chain'>('same-chain')
     const [selectedChain, setSelectedChain] = useState('aptos')
+    const [fromAmount, setFromAmount] = useState('')
+    const [toAmount, setToAmount] = useState('')
 
     const chains = [
         { id: 'aptos', name: 'Aptos', icon: Assets.Aptos, active: true },
@@ -95,8 +97,25 @@ const SwapPage = () => {
                             <section className=' flex w-full gap-2'>
                                 <div className=" flex-1 flex flex-col justify-between">
                                     <p className='text-[12px]'>Pay from <span className='text-button-primary font-bold pl-1'> Connect Wallet</span></p>
-                                    <div className=" mt-auto">
-                                        <input type="text" placeholder='0.00' className='bg-transparent outline-none py-2 font-medium text-xl w-full' />
+                                    <div className=" mt-auto relative">
+                                        <input 
+                                            type="text" 
+                                            placeholder='0.00' 
+                                            value={fromAmount}
+                                            onChange={(e) => {
+                                                const value = e.target.value;
+                                                if (value === '' || /^\d*\.?\d*$/.test(value)) {
+                                                    setFromAmount(value);
+                                                }
+                                            }}
+                                            className='bg-transparent outline-none py-2 font-medium text-xl w-full pr-8' 
+                                        />
+                                        {fromAmount && (
+                                            <CircleX 
+                                                className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-white/60 hover:text-white/80 cursor-pointer" 
+                                                onClick={() => setFromAmount('')}
+                                            />
+                                        )}
                                         <div className="border-b border-white/10"></div>
                                     </div>
                                 </div>
@@ -119,8 +138,25 @@ const SwapPage = () => {
                             <section className=' flex w-full gap-2'>
                                 <div className=" flex-1 flex flex-col justify-between">
                                     <p className='text-[12px]'>Receive to <span className='text-button-primary font-bold pl-1'> Connect Wallet</span></p>
-                                    <div className=" mt-auto">
-                                        <input type="text" placeholder='0.00' disabled className='bg-transparent outline-none py-2 font-medium text-xl w-full' />
+                                    <div className=" mt-auto relative">
+                                        <input 
+                                            type="text" 
+                                            placeholder='0.00' 
+                                            value={toAmount}
+                                            onChange={(e) => {
+                                                const value = e.target.value;
+                                                if (value === '' || /^\d*\.?\d*$/.test(value)) {
+                                                    setToAmount(value);
+                                                }
+                                            }}
+                                            className='bg-transparent outline-none py-2 font-medium text-xl w-full pr-8' 
+                                        />
+                                        {toAmount && (
+                                            <CircleX 
+                                                className="absolute right-2 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60 hover:text-white/80 cursor-pointer" 
+                                                onClick={() => setToAmount('')}
+                                            />
+                                        )}
                                         <div className="border-b border-white/10"></div>
                                     </div>
                                 </div>
