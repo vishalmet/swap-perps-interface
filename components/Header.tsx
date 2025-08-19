@@ -80,8 +80,8 @@ const Header = () => {
                 )}
                 
                 <Button variant='secondary' size='lg' className=' relative text-[var(--color-text-primary)]'><Bell size={16} className='relative' /> <span className='absolute top-1 right-2 bg-[#FFB74D] rounded-full w-2 h-2 flex items-center justify-center'></span></Button>
-                <ThemeToggle />
                 <Button variant='secondary' size='lg' className='text-[var(--color-text-primary)]'><Settings size={16} /></Button>
+                <ThemeToggle />
             </section>
         </header>
     )
