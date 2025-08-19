@@ -1,6 +1,4 @@
-# Kanalabs - Advanced DeFi & Trading Platform
-
-A cutting-edge DeFi platform offering advanced trading, swapping, and perpetual futures trading with multi-chain support. Built with Next.js 15, React 19, and modern web technologies.
+Built with Next.js 15, React 19, and modern web technologies.
 
 ## 🚀 Features
 
@@ -123,7 +121,7 @@ kana-task/
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd kana-task
+cd swap-perps-interface
 
 # Install dependencies
 npm install
