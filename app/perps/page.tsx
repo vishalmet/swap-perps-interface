@@ -78,8 +78,8 @@ const PerpsPage = () => {
             </section>
 
             {/* column 2 */}
-            <section className='flex-1'>
-              <Card className='rounded-[8px] h-full w-full flex justify-center items-center bg-transparent'>
+            <section className='flex-1 space-y-2'>
+              <Card className='rounded-[8px] h-[65%] w-full flex justify-center items-center bg-transparent'>
                 <CardContent>
                   <div className='flex flex-col gap-2'>
                     <div className='flex flex-row gap-2'>
@@ -87,6 +87,9 @@ const PerpsPage = () => {
                     </div>
                   </div>
                 </CardContent>
+              </Card>
+              <Card className='rounded-[8px] h-[33.5%] w-full flex justify-center items-center bg-transparent'>
+                
               </Card>
             </section>
           </section>
