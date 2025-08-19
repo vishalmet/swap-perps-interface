@@ -40,7 +40,7 @@ export const colors = {
   
   light: {
     // Backgrounds
-    bgPrimary: '#FFFFFF',
+    bgPrimary: '#FCFDFE',
     bgSecondary: '#F7F8FA',
     bgCard: '#FFFFFF',
     bgInput: '#FFFFFF',
