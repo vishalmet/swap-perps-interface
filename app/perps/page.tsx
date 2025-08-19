@@ -93,8 +93,8 @@ const PerpsPage = () => {
 
                 {/* Scrollable Orders Container */}
                 <div className='flex-1 flex flex-col'>
-                  {/* Sell Orders Section - Scrollable */}
-                  <div className='flex-1 h-full max-h-[25%] overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent'>
+                                     {/* Sell Orders Section - Scrollable */}
+                   <div className='flex-1 min-h-[25%] max-h-[25%] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
                     {[
                     { price: '22.025', size: '307.825', sum: '307.825' },
                     { price: '22.000', size: '45.082', sum: '352.907' },
@@ -128,7 +128,7 @@ const PerpsPage = () => {
                   </div>
 
                   {/* Current Market Price - Fixed Center */}
-                  <div className='flex items-center py-1 px-3 flex-shrink-0'>
+                  <div className='flex items-center py-2 px-3 flex-shrink-0'>
                     <span className='text-[#EF5350] font-bold text-lg'>2345.5</span>
                     <svg className='w-4 h-4 text-[#EF5350] ml-1' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                       <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 14l-7 7m0 0l-7-7m7 7V3' />
@@ -136,8 +136,8 @@ const PerpsPage = () => {
                     <span className='text-white/60 text-base ml-2 underline'>2345.6</span>
                   </div>
 
-                  {/* Buy Orders Section - Scrollable */}
-                  <div className='flex-1 h-full max-h-[25%] overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent'>
+                                     {/* Buy Orders Section - Scrollable */}
+                   <div className='flex-1 min-h-[25%] max-h-[25%] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
                     {[
                     { price: '21.920', size: '0.750', sum: '0.750' },
                     { price: '21.915', size: '0.850', sum: '1.600' },
