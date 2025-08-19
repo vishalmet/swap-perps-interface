@@ -50,6 +50,15 @@ const PerpsChart = () => (
   </Card>
 )
 
+// Chart Component
+const BuyOrSell = () => (
+  <div className="w-full">
+    <Card className='rounded-[8px] min-h-[200px] w-full flex justify-center items-center'>
+      <CardContent>Graph</CardContent>
+    </Card>
+  </div>
+)
+
 // Orderbook Component
 const Orderbook = () => {
   const sellOrders = [
@@ -106,7 +115,7 @@ const Orderbook = () => {
       {/* Scrollable Orders Container */}
       <div className='flex-1 flex flex-col'>
         {/* Sell Orders Section - Scrollable */}
-        <div className='h-[150px] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
+        <div className='h-[150px] overflow-y-auto font-mono' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
           {sellOrders.map((order, index) => (
             <div key={`ask-${index}`} className='flex text-[10px] px-3 py-0.5 hover:bg-[#EF5350]/20 cursor-pointer relative'>
               <div className='w-1/3 text-[#EF5350]'>{order.price}</div>
@@ -133,7 +142,7 @@ const Orderbook = () => {
         </div>
 
         {/* Buy Orders Section - Scrollable */}
-        <div className='h-[150px] overflow-y-auto' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
+        <div className='h-[150px] overflow-y-auto font-mono' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
           {buyOrders.map((order, index) => (
             <div key={`bid-${index}`} className='flex text-[10px] px-3 py-0.5 hover:bg-[#66BB6A]/20 cursor-pointer relative'>
               <div className='w-1/3 text-[#66BB6A]'>{order.price}</div>
@@ -175,7 +184,7 @@ const Trades = () => {
         <p className='text-white/60 text-[10px] w-1/3'>Size</p>
         <p className='text-white/60 text-[10px] w-1/2'>Time</p>
       </CardContent>
-      <div className="h-[70%] overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
+      <div className="h-[70%] overflow-y-auto font-mono" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
         {tradesData.map((trade, index) => (
           <div key={`trade-${index}`} className="flex text-[10px] px-2 py-1 border-b border-white/10 last:border-b-0">
             <p className={`w-1/3 ${trade.side === 'buy' ? 'text-[#66BB6A]' : 'text-[#EF5350]'}`}>
@@ -192,8 +201,8 @@ const Trades = () => {
   )
 }
 
-// Terminal Component with Tabs
-const PerpsTerminal = () => {
+// History Component with Tabs
+const PerpsHistory = () => {
   const tabItems = [
     { value: "open-orders", label: "Open Orders" },
     { value: "positions", label: "Positions" },
@@ -242,7 +251,7 @@ const PerpsTerminal = () => {
 const PerpsPage = () => {
   return (
     <div className=''>
-      <main className='p-4'>
+      <main className='p-4 flex space-x-2 w-full'>
         {/* column 1 & 2 */}
         <section className='w-[80%] space-y-2'>
           {/* column 1 */}
@@ -259,14 +268,14 @@ const PerpsPage = () => {
             </section>
           </section>
           
-          {/* terminal kinda UI */}
           <section>
-            <PerpsTerminal />
+            <PerpsHistory />
           </section>
         </section>
         
         {/* third column */}
-        <section>
+        <section className='w-[20%]'>
+          <BuyOrSell />
         </section>
       </main>
       <Footer />
