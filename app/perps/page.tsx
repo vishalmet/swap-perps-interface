@@ -2,6 +2,7 @@ import React from 'react'
 import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent } from '@/components/ui/card'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
 
@@ -58,17 +59,17 @@ const PerpsPage = () => {
     <div className='p-4 '>
       <main className=''>
         {/* column 1 & 2 */}
-        <section>
+        <section className='w-[80%] space-y-2'>
           {/* column 1 */}
-          <section className='w-[80%] h-fit flex space-x-2'>
+          <section className='h-fit flex space-x-2'>
             <section className='w-fit space-y-2'>
               <Card className='bg-transparent flex flex-row gap-0 rounded-[8px]'>
                 <CardAction className='flex items-center gap-1 text-white/80 font-bold border-r border-white/10 p-4 cursor-pointer hover:bg-white/5 rounded-l-xl'> <Image src={Assets.PerpPair} alt='perp pair' width={30} height={24} /> APT-PERP<ChevronDown /></CardAction>
-                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 cursor-pointer hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Mark</span><br /><span className='text-sm text-white/80 font-bold'>$7.32</span></CardAction>
-                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 cursor-pointer hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>24h change</span><br /><span className='text-sm text-[#66BB6A] font-bold'>+2 %</span></CardAction>
-                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 cursor-pointer hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Oracle Price</span><br /><span className='text-sm text-white/80 font-bold'>$11.1</span></CardAction>
-                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 cursor-pointer hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>24h volume</span><br /><span className='text-sm text-white/80 font-bold'>245,694,542</span></CardAction>
-                <CardAction className='py-1 px-4 w-[180px] cursor-pointer hover:bg-white/5 rounded-r-xl flex justify-between items-center gap-2'> <span><span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Funding</span><br /><span className='text-sm font-bold text-[#FFB74D]'>0.012%</span></span> <span><span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Next Funding</span><br /><span className='text-sm text-white/80 font-bold'>00:23:34</span></span></CardAction>
+                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Mark</span><br /><span className='text-sm text-white/80 font-bold'>$7.32</span></CardAction>
+                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>24h change</span><br /><span className='text-sm text-[#66BB6A] font-bold'>+2 %</span></CardAction>
+                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Oracle Price</span><br /><span className='text-sm text-white/80 font-bold'>$11.1</span></CardAction>
+                <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>24h volume</span><br /><span className='text-sm text-white/80 font-bold'>245,694,542</span></CardAction>
+                <CardAction className='py-1 px-4 w-[180px] hover:bg-white/5 rounded-r-xl flex justify-between items-center gap-2'> <span><span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Funding</span><br /><span className='text-sm font-bold text-[#FFB74D]'>0.012%</span></span> <span><span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Next Funding</span><br /><span className='text-sm text-white/80 font-bold'>00:23:34</span></span></CardAction>
               </Card>
               <Card className='rounded-[8px] min-h-[450px] flex justify-center items-center'>
                 <CardContent>Graph</CardContent>
@@ -77,7 +78,7 @@ const PerpsPage = () => {
 
             {/* column 2 */}
             <section className='flex-1'>
-              <Card className='rounded-[8px] h-full w-full flex justify-center items-center'>
+              <Card className='rounded-[8px] h-full w-full flex justify-center items-center bg-transparent'>
                 <CardContent>
                   <div className='flex flex-col gap-2'>
                     <div className='flex flex-row gap-2'>
@@ -88,10 +89,59 @@ const PerpsPage = () => {
               </Card>
             </section>
           </section>
-          {/* terminal kinda UI */}
-          <section>
-
-          </section>
+                     {/* terminal kinda UI */}
+           <section>
+             <Card className='rounded-[8px] min-h-full w-full bg-transparent'>
+               <CardContent className='px-0'>
+                 <Tabs defaultValue="open-orders" className="w-full">
+                   <TabsList className="bg-transparent p-0  border-b border-white/10">
+                     <TabsTrigger value="open-orders" className='rounded-tl-[8px]'>Open Orders</TabsTrigger>
+                     <TabsTrigger value="positions">Positions</TabsTrigger>
+                     <TabsTrigger value="order-history">Order History</TabsTrigger>
+                     <TabsTrigger value="trade-history">Trade History</TabsTrigger>
+                     <TabsTrigger value="funding-history">Funding History</TabsTrigger>
+                     <TabsTrigger value="deposit-withdraw">Deposit/Withdraw History</TabsTrigger>
+                   </TabsList>
+                   
+                   <TabsContent value="open-orders" className="mt-4">
+                     <div className="p-4">
+                       <p className="text-white/60">Open Orders content will go here</p>
+                     </div>
+                   </TabsContent>
+                   
+                   <TabsContent value="positions" className="mt-4">
+                     <div className="p-4">
+                       <p className="text-white/60">Positions content will go here</p>
+                     </div>
+                   </TabsContent>
+                   
+                   <TabsContent value="order-history" className="mt-4">
+                     <div className="p-4">
+                       <p className="text-white/60">Order History content will go here</p>
+                     </div>
+                   </TabsContent>
+                   
+                   <TabsContent value="trade-history" className="mt-4">
+                     <div className="p-4">
+                       <p className="text-white/60">Trade History content will go here</p>
+                     </div>
+                   </TabsContent>
+                   
+                   <TabsContent value="funding-history" className="mt-4">
+                     <div className="p-4">
+                       <p className="text-white/60">Funding History content will go here</p>
+                     </div>
+                   </TabsContent>
+                   
+                   <TabsContent value="deposit-withdraw" className="mt-4">
+                     <div className="p-4">
+                       <p className="text-white/60">Deposit/Withdraw History content will go here</p>
+                     </div>
+                   </TabsContent>
+                 </Tabs>
+               </CardContent>
+             </Card>
+           </section>
         </section>
         {/* third column */}
         <section>
