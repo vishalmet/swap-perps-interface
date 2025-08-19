@@ -12,7 +12,6 @@ Built with Next.js 15, React 19, and modern web technologies.
 ## 🏗️ Project Structure
 
 ```
-kana-task/
 ├── app/                          # Next.js App Router
 │   ├── layout.tsx               # Root layout with metadata and theme provider
 │   ├── page.tsx                 # Home page
