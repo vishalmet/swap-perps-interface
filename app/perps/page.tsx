@@ -11,36 +11,36 @@ import Footer from '@/components/Footer'
 // Header Component with trading pair info
 const PerpsHeader = () => (
   <Card className='bg-transparent flex flex-row gap-0 rounded-[8px]'>
-         <CardAction className='flex items-center gap-1 text-[var(--color-text-primary)] font-bold border-r border-[var(--color-border-primary)] p-4 cursor-pointer hover:bg-[var(--color-hover-primary)] rounded-l-xl'>
-       <Image src={Assets.PerpPair} alt='perp pair' width={30} height={24} />
-       APT-PERP<ChevronDown />
-     </CardAction>
-     <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
-       <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Mark</span><br />
-       <span className='text-sm text-[var(--color-text-primary)] font-bold'>$7.32</span>
-     </CardAction>
-     <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
-       <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>24h change</span><br />
-       <span className='text-sm text-[var(--color-success)] font-bold'>+2 %</span>
-     </CardAction>
-     <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
-       <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Oracle Price</span><br />
-       <span className='text-sm text-[var(--color-text-primary)] font-bold'>$11.1</span>
-     </CardAction>
-     <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
-       <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>24h volume</span><br />
-       <span className='text-sm text-[var(--color-text-primary)] font-bold'>245,694,542</span>
-     </CardAction>
-     <CardAction className='py-1 px-4 w-[180px] hover:bg-[var(--color-hover-primary)] rounded-r-xl flex justify-between items-center gap-2'>
-       <span>
-         <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Funding</span><br />
-         <span className='text-sm font-bold text-[#FFB74D]'>0.012%</span>
-       </span>
-       <span>
-         <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Next Funding</span><br />
-         <span className='text-sm text-[var(--color-text-primary)] font-bold'>00:23:34</span>
-       </span>
-     </CardAction>
+    <CardAction className='flex items-center gap-1 text-[var(--color-text-primary)] font-bold border-r border-[var(--color-border-primary)] p-4 cursor-pointer hover:bg-[var(--color-hover-primary)] rounded-l-xl'>
+      <Image src={Assets.PerpPair} alt='perp pair' width={30} height={24} />
+      APT-PERP<ChevronDown />
+    </CardAction>
+    <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
+      <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Mark</span><br />
+      <span className='text-sm text-[var(--color-text-primary)] font-bold'>$7.32</span>
+    </CardAction>
+    <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
+      <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>24h change</span><br />
+      <span className='text-sm text-[var(--color-success)] font-bold'>+2 %</span>
+    </CardAction>
+    <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
+      <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Oracle Price</span><br />
+      <span className='text-sm text-[var(--color-text-primary)] font-bold'>$11.1</span>
+    </CardAction>
+    <CardAction className='py-1 px-4 w-[155px] border-r border-[var(--color-border-primary)] hover:bg-[var(--color-hover-primary)]'>
+      <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>24h volume</span><br />
+      <span className='text-sm text-[var(--color-text-primary)] font-bold'>245,694,542</span>
+    </CardAction>
+    <CardAction className='py-1 px-4 w-[180px] hover:bg-[var(--color-hover-primary)] rounded-r-xl flex justify-between items-center gap-2'>
+      <span>
+        <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Funding</span><br />
+        <span className='text-sm font-bold text-[#FFB74D]'>0.012%</span>
+      </span>
+      <span>
+        <span className='text-[var(--color-text-secondary)] border-b border-dotted border-[var(--color-text-secondary)] text-xs'>Next Funding</span><br />
+        <span className='text-sm text-[var(--color-text-primary)] font-bold'>00:23:34</span>
+      </span>
+    </CardAction>
   </Card>
 )
 
@@ -130,27 +130,27 @@ const BuyOrSell = () => {
       <Card className='rounded-[8px] bg-transparent w-full flex'>
         <CardContent className=' px-2 py-2 flex justify-between items-center'>
           <div className="">
-                         <p className='text-[var(--color-text-secondary)] text-[10px] flex items-center gap-1'>Profile 1 <ChevronDown size={10} /></p>
-             <p className='text-[var(--color-text-primary)] text-sm font-bold'>0.00 USDT</p>
-           </div>
-           <div className=" flex items-center gap-2">
-             <div className=" bg-[var(--color-bg-accent)] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-[var(--color-hover-primary)]">
-               <Download className='text-[var(--color-text-secondary)]' size={16} />
-             </div>
-             <div className="bg-[var(--color-bg-accent)] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-[var(--color-hover-primary)]">
-               <Upload className='text-[var(--color-text-secondary)]' size={16} />
-             </div>
+            <p className='text-[var(--color-text-secondary)] text-[10px] flex items-center gap-1'>Profile 1 <ChevronDown size={10} /></p>
+            <p className='text-[var(--color-text-primary)] text-sm font-bold'>0.00 USDT</p>
+          </div>
+          <div className=" flex items-center gap-2">
+            <div className=" bg-[var(--color-bg-accent)] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-[var(--color-hover-primary)]">
+              <Download className='text-[var(--color-text-secondary)]' size={16} />
+            </div>
+            <div className="bg-[var(--color-bg-accent)] p-2 rounded-[8px] w-fit cursor-pointer hover:bg-[var(--color-hover-primary)]">
+              <Upload className='text-[var(--color-text-secondary)]' size={16} />
+            </div>
           </div>
         </CardContent>
       </Card>
 
       <div className=" flex gap-2">
-                 <Card className='rounded-[8px] bg-transparent w-full flex p-2 text-center text-sm text-[var(--color-text-primary)] font-bold hover:bg-[var(--color-hover-primary)] cursor-pointer'>
-           <p>Isolated</p>
-         </Card>
-         <Card className='rounded-[8px] bg-transparent w-full flex p-2 text-center text-sm text-[var(--color-text-primary)] font-bold hover:bg-[var(--color-hover-primary)] cursor-pointer'>
-           <p>Hedge</p>
-         </Card>
+        <Card className='rounded-[8px] bg-transparent w-full flex p-2 text-center text-sm text-[var(--color-text-primary)] font-bold hover:bg-[var(--color-hover-primary)] cursor-pointer'>
+          <p>Isolated</p>
+        </Card>
+        <Card className='rounded-[8px] bg-transparent w-full flex p-2 text-center text-sm text-[var(--color-text-primary)] font-bold hover:bg-[var(--color-hover-primary)] cursor-pointer'>
+          <p>Hedge</p>
+        </Card>
       </div>
 
       <Card className='rounded-[8px] bg-transparent w-full flex'>
@@ -173,59 +173,59 @@ const BuyOrSell = () => {
             <TabsContent key={tab.value} value={tab.value} className="min-h-48 p-2 pt-0 space-y-2">
               <section className=" flex items-center justify-between text-base">
                 <div className=" flex items-center gap-2 pl-6 pb-2">
-                                     <div
-                     onClick={() => setOrderType('market')}
-                     className={`px-3 py-2 text-[12px] font-bold cursor-pointer transition-all duration-200 ${orderType === 'market'
-                       ? ' text-[var(--color-text-primary)] border-b-2 border-[var(--color-primary)]'
-                       : 'text-[var(--color-text-secondary)]'
-                       }`}>
-                     Market
-                   </div>
-                   <div
-                     onClick={() => setOrderType('limit')}
-                     className={`px-3 py-2 text-[12px] font-bold cursor-pointer transition-all duration-200 ${orderType === 'limit'
-                       ? ' text-[var(--color-text-primary)] border-b-2 border-[var(--color-primary)]'
-                       : 'text-[var(--color-text-secondary)] '
-                       }`}>
-                     Limit
-                   </div>
+                  <div
+                    onClick={() => setOrderType('market')}
+                    className={`px-3 py-2 text-[12px] font-bold cursor-pointer transition-all duration-200 ${orderType === 'market'
+                      ? ' text-[var(--color-text-primary)] border-b-2 border-[var(--color-primary)]'
+                      : 'text-[var(--color-text-secondary)]'
+                      }`}>
+                    Market
+                  </div>
+                  <div
+                    onClick={() => setOrderType('limit')}
+                    className={`px-3 py-2 text-[12px] font-bold cursor-pointer transition-all duration-200 ${orderType === 'limit'
+                      ? ' text-[var(--color-text-primary)] border-b-2 border-[var(--color-primary)]'
+                      : 'text-[var(--color-text-secondary)] '
+                      }`}>
+                    Limit
+                  </div>
                 </div>
-                                 <p className='text-[var(--color-primary)] bg-[var(--color-bg-accent)] px-2 py-1 rounded-[8px] text-[12px] font-bold flex items-center gap-1 hover:bg-[var(--color-hover-primary)] cursor-pointer'>2x <ChevronRight size={12} /></p>
+                <p className='text-[var(--color-primary)] bg-[var(--color-bg-accent)] px-2 py-1 rounded-[8px] text-[12px] font-bold flex items-center gap-1 hover:bg-[var(--color-hover-primary)] cursor-pointer'>2x <ChevronRight size={12} /></p>
               </section>
 
               <Card className='rounded-[8px] w-full flex'>
                 <CardContent className='p-2 space-y-2'>
-                                     <div className=" flex justify-between px-2">
-                     <p className='text-[var(--color-text-secondary)] text-[10px]'>Price</p>
-                     <p className='text-[var(--color-primary)] text-[10px] font-bold'>Mid</p>
-                   </div>
-                                     <Card className='rounded-[8px] bg-[var(--color-bg-input)] w-full flex p-2 border border-[var(--color-border-primary)] hover:border-[var(--color-border-hover)] transition-colors duration-200'>
-                     <div className='flex items-center justify-between w-full'>
-                       <input
-                         type="text"
-                         placeholder='123456'
-                         className='bg-transparent text-sm outline-none text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] w-full pr-2 focus:text-[var(--color-text-primary)] transition-colors duration-200'
-                       />
-                       <p className='text-[var(--color-text-primary)] font-bold text-[10px] flex-shrink-0'>USDT</p>
-                     </div>
-                   </Card>
+                  <div className=" flex justify-between px-2">
+                    <p className='text-[var(--color-text-secondary)] text-[10px]'>Price</p>
+                    <p className='text-[var(--color-primary)] text-[10px] font-bold'>Mid</p>
+                  </div>
+                  <Card className='rounded-[8px] bg-[var(--color-bg-input)] w-full flex p-2 border border-[var(--color-border-primary)] hover:border-[var(--color-border-hover)] transition-colors duration-200'>
+                    <div className='flex items-center justify-between w-full'>
+                      <input
+                        type="text"
+                        placeholder='123456'
+                        className='bg-transparent text-sm outline-none text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] w-full pr-2 focus:text-[var(--color-text-primary)] transition-colors duration-200'
+                      />
+                      <p className='text-[var(--color-text-primary)] font-bold text-[10px] flex-shrink-0'>USDT</p>
+                    </div>
+                  </Card>
                 </CardContent>
               </Card>
               <Card className='rounded-[8px] w-full flex'>
                 <CardContent className='p-2 space-y-2'>
-                                     <div className=" flex px-2">
-                     <p className='text-[var(--color-text-secondary)] text-[10px]'>Amount</p>
-                   </div>
-                                     <Card className='rounded-[8px] bg-[var(--color-bg-input)] w-full flex p-2 border border-[var(--color-border-primary)] hover:border-[var(--color-border-hover)] transition-colors duration-200'>
-                     <div className='flex items-center justify-between w-full'>
-                       <input
-                         type="text"
-                         placeholder='0.00'
-                         className='bg-transparent text-sm outline-none text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] w-full pr-2 focus:text-[var(--color-text-primary)] transition-colors duration-200'
-                       />
-                       <p className='text-[var(--color-text-primary)] font-bold flex items-center gap-1 cursor-pointer text-[10px] flex-shrink-0 hover:text-[var(--color-primary)] transition-colors duration-200'>APT <ArrowRightLeft size={12} /></p>
-                     </div>
-                   </Card>
+                  <div className=" flex px-2">
+                    <p className='text-[var(--color-text-secondary)] text-[10px]'>Amount</p>
+                  </div>
+                  <Card className='rounded-[8px] bg-[var(--color-bg-input)] w-full flex p-2 border border-[var(--color-border-primary)] hover:border-[var(--color-border-hover)] transition-colors duration-200'>
+                    <div className='flex items-center justify-between w-full'>
+                      <input
+                        type="text"
+                        placeholder='0.00'
+                        className='bg-transparent text-sm outline-none text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] w-full pr-2 focus:text-[var(--color-text-primary)] transition-colors duration-200'
+                      />
+                      <p className='text-[var(--color-text-primary)] font-bold flex items-center gap-1 cursor-pointer text-[10px] flex-shrink-0 hover:text-[var(--color-primary)] transition-colors duration-200'>APT <ArrowRightLeft size={12} /></p>
+                    </div>
+                  </Card>
                 </CardContent>
               </Card>
 
@@ -236,24 +236,24 @@ const BuyOrSell = () => {
                     <div className="flex justify-between items-center gap-3">
                       <div className="slider-container relative w-full">
                         {/* Slider Track - Clickable */}
-                                                 <div
-                           className="slider-track w-full h-1 bg-[var(--color-text-muted)] rounded-full relative cursor-pointer"
-                           onClick={handleTrackClick}
-                         >
-                           {/* Active Track (filled part) */}
-                           <div
-                             className="h-full bg-[var(--color-primary)] rounded-full transition-all duration-200"
-                             style={{ width: `${leverage}%` }}
-                           />
+                        <div
+                          className="slider-track w-full h-1 bg-[var(--color-text-muted)] rounded-full relative cursor-pointer"
+                          onClick={handleTrackClick}
+                        >
+                          {/* Active Track (filled part) */}
+                          <div
+                            className="h-full bg-[var(--color-primary)] rounded-full transition-all duration-200"
+                            style={{ width: `${leverage}%` }}
+                          />
 
-                           {/* Track Markers */}
-                           <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-2 bg-[var(--color-primary)] rounded-full" />
-                           <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1 h-2 bg-[var(--color-text-muted)] rounded-full" />
-                         </div>
+                          {/* Track Markers */}
+                          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-2 bg-[var(--color-primary)] rounded-full" />
+                          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1 h-2 bg-[var(--color-text-muted)] rounded-full" />
+                        </div>
 
                         {/* Slider Handle */}
-                                                 <div
-                           className="absolute top-1/2 transform -translate-y-1/2 w-3 h-3 bg-[var(--color-primary)] rounded-full border-2 border-[var(--color-text-primary)] cursor-pointer hover:scale-110 transition-transform duration-200 z-10"
+                        <div
+                          className="absolute top-1/2 transform -translate-y-1/2 w-3 h-3 bg-[var(--color-primary)] rounded-full border-2 border-[var(--color-text-primary)] cursor-pointer hover:scale-110 transition-transform duration-200 z-10"
                           style={{
                             left: `calc(${leverage}% - 8px)`,
                             marginLeft: leverage === 0 ? '0' : leverage === 100 ? 'calc(-8px)' : '0'
@@ -262,18 +262,18 @@ const BuyOrSell = () => {
                           onTouchStart={handleTouchStart}
                         />
                       </div>
-                                             <Card className='text-[var(--color-text-primary)] bg-[var(--color-bg-input)] px-2 py-1 rounded-[8px] text-[12px] flex items-center gap-1'>
-                         <p className='flex gap-2'>{leverage} <span className='text-[var(--color-text-secondary)]'>%</span></p>
-                       </Card>
+                      <Card className='text-[var(--color-text-primary)] bg-[var(--color-bg-input)] px-2 py-1 rounded-[8px] text-[12px] flex items-center gap-1'>
+                        <p className='flex gap-2'>{leverage} <span className='text-[var(--color-text-secondary)]'>%</span></p>
+                      </Card>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-                             <div className=" flex justify-between items-center text-[10px] py-2 px-3">
-                 <p className='text-[var(--color-text-secondary)]'>Buy <span className='text-[var(--color-text-primary)] font-bold pl-2'>0.049 BTC</span></p>
-                 <p className='text-[var(--color-text-secondary)]'>Sell <span className='text-[var(--color-text-primary)] font-bold pl-2'>0.049 BTC</span></p>
-               </div>
+              <div className=" flex justify-between items-center text-[10px] py-2 px-3">
+                <p className='text-[var(--color-text-secondary)]'>Buy <span className='text-[var(--color-text-primary)] font-bold pl-2'>0.049 BTC</span></p>
+                <p className='text-[var(--color-text-secondary)]'>Sell <span className='text-[var(--color-text-primary)] font-bold pl-2'>0.049 BTC</span></p>
+              </div>
 
               <Card className='rounded-[8px] w-full flex flex-row p-2 justify-between items-center'>
                 <div className="flex items-center gap-2">
@@ -299,30 +299,30 @@ const BuyOrSell = () => {
               </Button>
 
               <section className='pt-2 px-3 space-y-1'>
-                                 <div className=" font-bold text-[10px] flex justify-between items-center">
-                   <p className='text-[var(--color-text-secondary)] w-1/3 text-start'>126.59</p>
-                   <p className='underline text-[var(--color-text-tertiary)] w-1/3 text-center'>Liq</p>
-                   <p className='text-[var(--color-text-secondary)] w-1/3 text-end'>126.59</p>
-                 </div>
-                 <div className=" font-bold text-[10px] flex justify-between items-center">
-                   <p className='text-[var(--color-text-secondary)] w-1/3 text-start'>$2,409.23</p>
-                   <p className='underline text-[var(--color-text-tertiary)] w-1/3 text-center'>Value</p>
-                   <p className='text-[var(--color-text-secondary)] w-1/3 text-end'>$2,409.23</p>
-                 </div>
-                 <div className=" font-bold text-[10px] flex justify-between items-center">
-                   <p className='text-[var(--color-text-secondary)] w-1/3 text-start'>$120.59</p>
-                   <p className='underline text-[var(--color-text-tertiary)] w-1/3 text-center'>Mark</p>
-                   <p className='text-[var(--color-text-secondary)] w-1/3 text-end'>$120.59</p>
-                 </div>
-                 <div className=" font-bold text-[10px] flex justify-between items-center">
-                   <p className='text-[var(--color-text-secondary)] w-1/3 text-start'>8%</p>
-                   <p className='underline text-[var(--color-text-tertiary)] w-1/3 text-center'>Slippage</p>
-                   <p className='text-[var(--color-text-secondary)] w-1/3 text-end'>8%</p>
-                 </div>
-                 <div className=" text-[10px] flex justify-between items-center">
-                   <p className='text-[var(--color-text-tertiary)]'>Estimated fees</p>
-                   <p className='text-[var(--color-text-secondary)] font-bold'>0.035% / 0.010%</p>
-                 </div>
+                <div className=" font-bold text-[10px] flex justify-between items-center">
+                  <p className='text-[var(--color-text-secondary)] w-1/3 text-start'>126.59</p>
+                  <p className='underline text-[var(--color-text-tertiary)] w-1/3 text-center'>Liq</p>
+                  <p className='text-[var(--color-text-secondary)] w-1/3 text-end'>126.59</p>
+                </div>
+                <div className=" font-bold text-[10px] flex justify-between items-center">
+                  <p className='text-[var(--color-text-secondary)] w-1/3 text-start'>$2,409.23</p>
+                  <p className='underline text-[var(--color-text-tertiary)] w-1/3 text-center'>Value</p>
+                  <p className='text-[var(--color-text-secondary)] w-1/3 text-end'>$2,409.23</p>
+                </div>
+                <div className=" font-bold text-[10px] flex justify-between items-center">
+                  <p className='text-[var(--color-text-secondary)] w-1/3 text-start'>$120.59</p>
+                  <p className='underline text-[var(--color-text-tertiary)] w-1/3 text-center'>Mark</p>
+                  <p className='text-[var(--color-text-secondary)] w-1/3 text-end'>$120.59</p>
+                </div>
+                <div className=" font-bold text-[10px] flex justify-between items-center">
+                  <p className='text-[var(--color-text-secondary)] w-1/3 text-start'>8%</p>
+                  <p className='underline text-[var(--color-text-tertiary)] w-1/3 text-center'>Slippage</p>
+                  <p className='text-[var(--color-text-secondary)] w-1/3 text-end'>8%</p>
+                </div>
+                <div className=" text-[10px] flex justify-between items-center">
+                  <p className='text-[var(--color-text-tertiary)]'>Estimated fees</p>
+                  <p className='text-[var(--color-text-secondary)] font-bold'>0.035% / 0.010%</p>
+                </div>
               </section>
             </TabsContent>
           ))}
@@ -393,17 +393,17 @@ const Orderbook = () => {
 
   return (
     <Card className='rounded-[8px] h-[65%] w-full bg-transparent flex flex-col'>
-             <CardHeader className='text-sm py-2 px-3 border-b border-[var(--color-border-primary)] font-bold flex-shrink-0 text-[var(--color-text-primary)]'>
-         Orderbook
-       </CardHeader>
+      <CardHeader className='text-sm py-2 px-3 border-b border-[var(--color-border-primary)] font-bold flex-shrink-0 text-[var(--color-text-primary)]'>
+        Orderbook
+      </CardHeader>
 
       {/* Headers - Fixed */}
       <div className='py-2 px-3'>
-                 <div className="flex text-[10px] font-bold">
-           <p className='w-1/3'>Price <br /> <span className='text-[var(--color-text-tertiary)]'>(eUSDT)</span></p>
-           <p className='w-1/3 text-end'>Size <br /> <span className='text-[var(--color-text-tertiary)]'>(eAPT)</span></p>
-           <p className='w-1/3 text-end'>Sum <br /> <span className='text-[var(--color-text-tertiary)]'>(eAPT)</span></p>
-         </div>
+        <div className="flex text-[10px] font-bold">
+          <p className='w-1/3'>Price <br /> <span className='text-[var(--color-text-tertiary)]'>(eUSDT)</span></p>
+          <p className='w-1/3 text-end'>Size <br /> <span className='text-[var(--color-text-tertiary)]'>(eAPT)</span></p>
+          <p className='w-1/3 text-end'>Sum <br /> <span className='text-[var(--color-text-tertiary)]'>(eAPT)</span></p>
+        </div>
       </div>
 
       {/* Scrollable Orders Container */}
@@ -411,45 +411,45 @@ const Orderbook = () => {
         {/* Sell Orders Section - Scrollable */}
         <div className='h-[150px] overflow-y-auto font-mono' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
           {sellOrders.map((order, index) => (
-                         <div key={`ask-${index}`} className='flex text-[10px] px-3 py-0.5 hover:bg-[var(--color-warning)]/20 cursor-pointer relative'>
-               <div className='w-1/3 text-[var(--color-warning)]'>{order.price}</div>
-               <div className='w-1/3 text-end text-[var(--color-text-primary)]'>{order.size}</div>
-               <div className='w-1/3 text-end text-[var(--color-text-primary)]'>{order.sum}</div>
-               {/* Red stair-like background - decreasing from top, covering Size and Sum columns */}
-               <div
-                 className='absolute right-0 top-0 bottom-0 bg-[var(--color-warning)]/20'
-                 style={{
-                   width: `${Math.max(33.33, 66.67 - (Math.floor(index / 2) * 10))}%`
-                 }}
-               />
-             </div>
+            <div key={`ask-${index}`} className='flex text-[10px] px-3 py-0.5 hover:bg-[var(--color-warning)]/20 cursor-pointer relative'>
+              <div className='w-1/3 text-[var(--color-warning)]'>{order.price}</div>
+              <div className='w-1/3 text-end text-[var(--color-text-primary)]'>{order.size}</div>
+              <div className='w-1/3 text-end text-[var(--color-text-primary)]'>{order.sum}</div>
+              {/* Red stair-like background - decreasing from top, covering Size and Sum columns */}
+              <div
+                className='absolute right-0 top-0 bottom-0 bg-[var(--color-warning)]/20'
+                style={{
+                  width: `${Math.max(33.33, 66.67 - (Math.floor(index / 2) * 10))}%`
+                }}
+              />
+            </div>
           ))}
         </div>
 
         {/* Current Market Price - Fixed Center */}
-                 <div className='flex items-center py-2 px-3 flex-shrink-0'>
-           <span className='text-[var(--color-warning)] font-bold text-lg'>2345.5</span>
-           <svg className='w-4 h-4 text-[var(--color-warning)] ml-1' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 14l-7 7m0 0l-7-7m7 7V3' />
-           </svg>
-           <span className='text-[var(--color-text-secondary)] text-base ml-2 underline'>2345.6</span>
-         </div>
+        <div className='flex items-center py-2 px-3 flex-shrink-0'>
+          <span className='text-[var(--color-warning)] font-bold text-lg'>2345.5</span>
+          <svg className='w-4 h-4 text-[var(--color-warning)] ml-1' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 14l-7 7m0 0l-7-7m7 7V3' />
+          </svg>
+          <span className='text-[var(--color-text-secondary)] text-base ml-2 underline'>2345.6</span>
+        </div>
 
         {/* Buy Orders Section - Scrollable */}
         <div className='h-[150px] overflow-y-auto font-mono' style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
           {buyOrders.map((order, index) => (
-                         <div key={`bid-${index}`} className='flex text-[10px] px-3 py-0.5 hover:bg-[var(--color-success)]/20 cursor-pointer relative'>
-               <div className='w-1/3 text-[var(--color-success)]'>{order.price}</div>
-               <div className='w-1/3 text-end text-[var(--color-text-primary)]'>{order.size}</div>
-               <div className='w-1/3 text-end text-[var(--color-text-primary)]'>{order.sum}</div>
-               {/* Green stair-like background - increasing from top by 2 rows, covering Size and Sum columns */}
-               <div
-                 className='absolute right-0 top-0 bottom-0 bg-[var(--color-success)]/20'
-                 style={{
-                   width: `${Math.min(66.67, 33.33 + (Math.floor(index / 2) * 10))}%`
-                 }}
-               />
-             </div>
+            <div key={`bid-${index}`} className='flex text-[10px] px-3 py-0.5 hover:bg-[var(--color-success)]/20 cursor-pointer relative'>
+              <div className='w-1/3 text-[var(--color-success)]'>{order.price}</div>
+              <div className='w-1/3 text-end text-[var(--color-text-primary)]'>{order.size}</div>
+              <div className='w-1/3 text-end text-[var(--color-text-primary)]'>{order.sum}</div>
+              {/* Green stair-like background - increasing from top by 2 rows, covering Size and Sum columns */}
+              <div
+                className='absolute right-0 top-0 bottom-0 bg-[var(--color-success)]/20'
+                style={{
+                  width: `${Math.min(66.67, 33.33 + (Math.floor(index / 2) * 10))}%`
+                }}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -470,25 +470,25 @@ const Trades = () => {
 
   return (
     <Card className='rounded-[8px] h-[34%] w-full bg-transparent'>
-             <CardHeader className='text-sm py-2 px-3 border-b border-[var(--color-border-primary)] font-bold flex-shrink-0 text-[var(--color-text-primary)]'>
-         Trades
-       </CardHeader>
-       <CardContent className='flex px-2 py-1 bg-[var(--color-bg-card)] border-b border-[var(--color-border-primary)]'>
-         <p className='text-[var(--color-text-secondary)] text-[10px] w-1/3'>Price</p>
-         <p className='text-[var(--color-text-secondary)] text-[10px] w-1/3'>Size</p>
-         <p className='text-[var(--color-text-secondary)] text-[10px] w-1/2'>Time</p>
-       </CardContent>
+      <CardHeader className='text-sm py-2 px-3 border-b border-[var(--color-border-primary)] font-bold flex-shrink-0 text-[var(--color-text-primary)]'>
+        Trades
+      </CardHeader>
+      <CardContent className='flex px-2 py-1 bg-[var(--color-bg-card)] border-b border-[var(--color-border-primary)]'>
+        <p className='text-[var(--color-text-secondary)] text-[10px] w-1/3'>Price</p>
+        <p className='text-[var(--color-text-secondary)] text-[10px] w-1/3'>Size</p>
+        <p className='text-[var(--color-text-secondary)] text-[10px] w-1/2'>Time</p>
+      </CardContent>
       <div className="h-[70%] overflow-y-auto font-mono" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
         {tradesData.map((trade, index) => (
-                     <div key={`trade-${index}`} className="flex text-[10px] px-2 py-1 border-b border-[var(--color-border-primary)] last:border-b-0">
-             <p className={`w-1/3 ${trade.side === 'buy' ? 'text-[var(--color-success)]' : 'text-[var(--color-warning)]'}`}>
-               {trade.price}
-             </p>
-             <p className='w-1/3'>{trade.size}</p>
-             <p className='w-1/2 flex justify-between items-center'>
-               {trade.time} <ExternalLink className='text-[var(--color-primary)] cursor-pointer hover:opacity-80' size={10} />
-             </p>
-           </div>
+          <div key={`trade-${index}`} className="flex text-[10px] px-2 py-1 border-b border-[var(--color-border-primary)] last:border-b-0">
+            <p className={`w-1/3 ${trade.side === 'buy' ? 'text-[var(--color-success)]' : 'text-[var(--color-warning)]'}`}>
+              {trade.price}
+            </p>
+            <p className='w-1/3'>{trade.size}</p>
+            <p className='w-1/2 flex justify-between items-center'>
+              {trade.time} <ExternalLink className='text-[var(--color-primary)] cursor-pointer hover:opacity-80' size={10} />
+            </p>
+          </div>
         ))}
       </div>
     </Card>
@@ -510,29 +510,29 @@ const PerpsHistory = () => {
     <Card className='rounded-[8px] min-h-full w-full bg-transparent'>
       <CardContent className='px-0'>
         <Tabs defaultValue="open-orders" className="w-full">
-                     <TabsList className="bg-transparent p-0 border-b border-[var(--color-border-primary)] flex justify-between items-center w-full">
-             <div className="flex w-fit">
-               {tabItems.map((tab) => (
-                 <TabsTrigger
-                   key={tab.value}
-                   value={tab.value}
-                   className={tab.value === 'open-orders' ? 'rounded-tl-[8px]' : ''}
-                 >
-                   {tab.label}
-                 </TabsTrigger>
-               ))}
-             </div>
-             <div className="py-1 px-4 cursor-pointer hover:bg-[var(--color-hover-primary)] rounded-tr-[8px]">
-               <Ellipsis className='text-[var(--color-text-secondary)]' />
-             </div>
-           </TabsList>
+          <TabsList className="bg-transparent p-0 border-b border-[var(--color-border-primary)] flex justify-between items-center w-full">
+            <div className="flex w-fit">
+              {tabItems.map((tab) => (
+                <TabsTrigger
+                  key={tab.value}
+                  value={tab.value}
+                  className={tab.value === 'open-orders' ? 'rounded-tl-[8px]' : ''}
+                >
+                  {tab.label}
+                </TabsTrigger>
+              ))}
+            </div>
+            <div className="py-1 px-4 cursor-pointer hover:bg-[var(--color-hover-primary)] rounded-tr-[8px]">
+              <Ellipsis className='text-[var(--color-text-secondary)]' />
+            </div>
+          </TabsList>
 
           {tabItems.map((tab) => (
             <TabsContent key={tab.value} value={tab.value} className="min-h-48 flex justify-center items-center">
-                             <div className="p-4">
-                 <p className="text-[var(--color-text-secondary)] text-[10px]">Sign in to see your {tab.label}</p>
-                 <p className='text-[var(--color-primary)] font-bold text-center text-xs hover:underline cursor-pointer'>Sign in</p>
-               </div>
+              <div className="p-4">
+                <p className="text-[var(--color-text-secondary)] text-[10px]">Sign in to see your {tab.label}</p>
+                <p className='text-[var(--color-primary)] font-bold text-center text-xs hover:underline cursor-pointer'>Sign in</p>
+              </div>
             </TabsContent>
           ))}
         </Tabs>

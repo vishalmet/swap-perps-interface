@@ -162,7 +162,7 @@ body::-webkit-scrollbar-thumb {
   height: 16px;
   width: 16px;
   background-color: transparent;
-  border: 1px solid var(--color-border-secondary);
+  border: 2px solid var(--color-border-secondary);
   border-radius: 4px;
   transition: all 0.2s ease;
   display: inline-block;
@@ -171,6 +171,7 @@ body::-webkit-scrollbar-thumb {
 
 .checkmark:hover {
   border-color: var(--color-border-hover);
+  border-width: 2px;
 }
 
 /* Style the checkmark when the checkbox is checked */
@@ -193,45 +194,3 @@ body::-webkit-scrollbar-thumb {
   transform: rotate(45deg);
 }
 
-/* Custom Checkbox Styles */
-.hidden-checkbox {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.checkmark {
-  height: 16px;
-  width: 16px;
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  display: inline-block;
-  position: relative;
-}
-
-.checkmark:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* Style the checkmark when the checkbox is checked */
-.hidden-checkbox:checked + .checkmark {
-  background-color: #00FFF0;
-  border-color: #00FFF0;
-}
-
-/* Add checkmark icon when checked */
-.hidden-checkbox:checked + .checkmark::after {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 1px;
-  width: 6px;
-  height: 10px;
-  border: solid rgb(0, 0, 0);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
