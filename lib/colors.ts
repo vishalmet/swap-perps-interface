@@ -4,6 +4,12 @@ export const colors = {
   success: '#66BB6A',
   warning: '#EF5350',
   
+  // Theme-specific primary text color for buttons
+  primaryText: {
+    dark: '#00FFF0',
+    light: '#009696'
+  },
+  
   // Theme-specific colors
   dark: {
     // Backgrounds
@@ -73,6 +79,7 @@ export const getCSSVariables = (isDark: boolean = true) => {
     '--color-primary': colors.primary,
     '--color-success': colors.success,
     '--color-warning': colors.warning,
+    '--color-primary-text': isDark ? colors.primaryText.dark : colors.primaryText.light,
     
     '--color-bg-primary': theme.bgPrimary,
     '--color-bg-secondary': theme.bgSecondary,

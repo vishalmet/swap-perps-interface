@@ -6,10 +6,12 @@ import { Assets } from './Assets'
 import { Bell, BookOpen, ChartCandlestick, ChartColumnStacked, ChevronDown, Coins, Scale, Settings, UserCircle, Users } from 'lucide-react'
 import { Button } from './ui/button'
 import { ThemeToggle } from './ThemeToggle'
+import { useTheme } from './ThemeProvider'
 
 const Header = () => {
     const router = useRouter()
     const pathname = usePathname()
+    const { theme } = useTheme()
     
     // Set default active page based on current pathname
     const getActivePage = () => {
@@ -50,8 +52,8 @@ const Header = () => {
                                 key={item.id}
                                 className={`flex items-center gap-1 transition-colors duration-200 ${
                                     activePage === item.id 
-                                        ? 'text-[var(--color-primary)]' 
-                                        : 'hover:text-[var(--color-primary)]'
+                                        ? 'text-[var(--color-primary-text)]' 
+                                        : 'hover:text-[var(--color-primary-text)]'
                                 }`}
                                 onClick={() => handleNavigation(item.id, item.path)}
                             >
@@ -69,10 +71,10 @@ const Header = () => {
                 {activePage === 'perps' ? (
                     // Show these 4 buttons only on perps page
                     <>
-                        <Button variant='secondary' size='lg' className='text-[var(--color-text-tertiary)]'><Image src={Assets.Star} alt='star' width={16} height={16} />VIP<Image src={Assets.Info} alt='info' width={16} height={16} /></Button>
-                        <Button variant='secondary' size='lg' className=''><Image src={Assets.Win} alt='Coins' width={16} height={16} />Win $20</Button>
-                        <Button variant='secondary' size='lg' className=''><Image src={Assets.Deposit} alt='Card' width={16} height={16} />Deposit</Button>
-                        <Button variant='secondary' size='lg' className=''><Image src={Assets.User} alt='User' width={16} height={16} />Sign in</Button>
+                        <Button variant='secondary' size='lg' className='text-[var(--color-text-tertiary)]'><Image src={theme === 'light' ? Assets.LightStar : Assets.Star} alt='star' width={16} height={16} />VIP<Image src={Assets.Info} alt='info' width={16} height={16} /></Button>
+                        <Button variant='secondary' size='lg' className=''><Image src={theme === 'light' ? Assets.LightWin : Assets.Win} alt='Coins' width={16} height={16} />Win $20</Button>
+                        <Button variant='secondary' size='lg' className=''><Image src={theme === 'light' ? Assets.LightDeposit : Assets.Deposit} alt='Card' width={16} height={16} />Deposit</Button>
+                        <Button variant='secondary' size='lg' className=''><Image src={theme === 'light' ? Assets.LightUser : Assets.User} alt='User' width={16} height={16} />Sign in</Button>
                     </>
                 ) : (
                     // Show Connect Wallet button on other pages (swap, trade, etc.)

@@ -7,8 +7,10 @@ import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from '@/components/ui/accordion'
 import Footer from '@/components/Footer'
+import { useTheme } from '@/components/ThemeProvider'
 
 const SwapPage = () => {
+    const { theme } = useTheme()
     const [activeTab, setActiveTab] = useState<'same-chain' | 'cross-chain'>('same-chain')
     const [selectedChain, setSelectedChain] = useState('aptos')
     const [fromAmount, setFromAmount] = useState('')
@@ -30,152 +32,152 @@ const SwapPage = () => {
         <div className='min-h-screen flex flex-col'>
             <main className='p-4 flex-1'>
                 <div className="max-w-xl mx-auto">
-                {/* Main Swap Interface */}
-                <section className='flex items-center justify-between'>
-                    <div className="flex items-center">
-                        <button
-                            onClick={() => setActiveTab('same-chain')}
-                            className={` relative flex gap-3 rounded-t-xl text-xs cursor-pointer border border-b-0 border-[var(--color-border-primary)] shadow-sm py-4 px-6 transition-all duration-200 ${activeTab === 'same-chain'
+                    {/* Main Swap Interface */}
+                    <section className='flex items-center justify-between'>
+                        <div className="flex items-center">
+                            <button
+                                onClick={() => setActiveTab('same-chain')}
+                                className={` relative flex gap-3 rounded-t-xl text-xs cursor-pointer border border-b-0 border-[var(--color-border-primary)] shadow-sm py-4 px-6 transition-all duration-200 ${activeTab === 'same-chain'
                                     ? 'bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]'
                                     : 'bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
-                                }`}
-                        >
-                            <Image src={Assets.Split} alt='split' width={18} height={16} className='cursor-pointer hover:opacity-80' />
-                            Same-chain
-                            {activeTab === 'same-chain' && <div className="absolute -bottom-0.5 left-0 w-full border-b-2 border-[var(--color-bg-secondary)]"></div>}
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('cross-chain')}
-                            className={` relative flex gap-3 rounded-t-xl text-xs cursor-pointer border border-b-0 border-[var(--color-border-primary)] shadow-sm py-4 px-6 transition-all duration-200 ${activeTab === 'cross-chain'
+                                    }`}
+                            >
+                                <Image src={theme === 'light' ? Assets.LightSplit : Assets.Split} alt='split' width={18} height={16} className='cursor-pointer hover:opacity-80' />
+                                Same-chain
+                                {activeTab === 'same-chain' && <div className="absolute -bottom-0.5 left-0 w-full border-b-2 border-[var(--color-bg-secondary)]"></div>}
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('cross-chain')}
+                                className={` relative flex gap-3 rounded-t-xl text-xs cursor-pointer border border-b-0 border-[var(--color-border-primary)] shadow-sm py-4 px-6 transition-all duration-200 ${activeTab === 'cross-chain'
                                     ? 'bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]'
                                     : 'bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
-                                }`}
-                        >
-                            <Shuffle className='w-[18px] h-[16px]' />
-                            Cross-chain
-                            {activeTab === 'cross-chain' && <div className="absolute -bottom-0.5 left-0 w-full border-b-2 border-[var(--color-bg-secondary)]"></div>}
-                        </button>
-                    </div>
-                    <LayoutGrid className='w-[16px] h-[16px] text-primary cursor-pointer hover:opacity-80 m-2' />
-                </section>
-                <Card className='rounded-tl-none'>
-                    <CardContent className='p-6 space-y-3'>
-                        <div className='flex items-center justify-between'>
-                            <p className='font-bold text-[14px]'>{activeTab === 'same-chain' ? 'Same-chain Swap' : 'Cross-chain Swap'}</p>
-                            <div className=" flex items-center gap-3 ">
-                                <Image src={Assets.Refresh} alt='refresh' width={16} height={16} className='cursor-pointer hover:opacity-80' />
-                                <Image src={Assets.Settings} alt='settings' width={16} height={16} className='cursor-pointer hover:opacity-80' />
-                            </div>
+                                    }`}
+                            >
+                                <Shuffle className='w-[18px] h-[16px]' />
+                                Cross-chain
+                                {activeTab === 'cross-chain' && <div className="absolute -bottom-0.5 left-0 w-full border-b-2 border-[var(--color-bg-secondary)]"></div>}
+                            </button>
                         </div>
-
-                        {/* Chain Selection Band */}
-                        <section className='flex items-center gap-2'>
-                            {chains.map((chain) => (
-                                <button
-                                    key={chain.id}
-                                    onClick={() => setSelectedChain(chain.id)}
-                                    className={`flex flex-col items-center transition-all duration-300 cursor-pointer p-2 w-fit ${selectedChain === chain.id
-                                        ? 'opacity-100 scale-110'
-                                        : 'opacity-100 hover:opacity-80'
-                                        }`}
-                                >
-                                    <div className={`flex items-center justify-center ${selectedChain === chain.id ? 'border border-[var(--color-border-primary)] rounded-[8px] bg-[var(--color-hover-primary)] p-2' : ''
-                                        }`}>
-                                        <Image
-                                            src={chain.icon}
-                                            alt={chain.name}
-                                            width={24}
-                                            height={24}
-                                            className='rounded-full'
-                                        />
-                                    </div>
-                                </button>
-                            ))}
-                        </section>
-
-                        {/* From */}
-                        <Card className='flex py-4 px-6 gap-2 h-auto bg-[var(--color-bg-card)]'>
-                            <section className=' flex w-full gap-2'>
-                                <div className=" flex-1 flex flex-col justify-between">
-                                    <p className='text-[12px]'>Pay from <span className='text-button-primary font-bold pl-1'> Connect Wallet</span></p>
-                                    <div className=" mt-auto relative">
-                                        <input 
-                                            type="text" 
-                                            placeholder='0.00' 
-                                            value={fromAmount}
-                                            onChange={(e) => {
-                                                const value = e.target.value;
-                                                if (value === '' || /^\d*\.?\d*$/.test(value)) {
-                                                    setFromAmount(value);
-                                                }
-                                            }}
-                                            className='bg-transparent outline-none py-2 font-medium text-xl w-full pr-8' 
-                                        />
-                                        {fromAmount && (
-                                                                                     <CircleX 
-                                             className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] cursor-pointer" 
-                                             onClick={() => setFromAmount('')}
-                                         />
-                                        )}
-                                                                                 <div className="border-b border-[var(--color-border-primary)]"></div>
-                                     </div>
-                                 </div>
-                                 <Card className=' flex flex-row items-center gap-2 p-4 text-base'>
-                                    <Image src={Assets.TokenPlaceholder} alt='token' width={40} height={40} />
-                                    <p className='font-bold'>Token <br /> <span className='font-medium'><span className='font-normal'>on</span> Chain</span></p>
-                                </Card>
-                            </section>
-                                                         <div className="flex justify-between items-center text-[var(--color-text-secondary)] text-[12px]">
-                                 <p>USD <span>0</span></p>
-                                 <p> Balance -</p>
-                             </div>
-                         </Card>
-                         
-                         {/* To */}
-                        <Card className='flex py-4 px-6 gap-2 h-auto bg-[var(--color-bg-card)] relative'>
-                            <div className="absolute -top-1 cursor-pointer hover:opacity-80 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] rounded-[8px] w-fit p-2 z-50 border border-[var(--color-border-primary)]">
-                                <ArrowDownUp className='text-[var(--color-text-secondary)]' />
+                        <LayoutGrid className='w-[16px] h-[16px] text-[var(--color-primary)] cursor-pointer hover:opacity-80 m-2' />
+                    </section>
+                    <Card className='rounded-tl-none'>
+                        <CardContent className='p-6 space-y-3'>
+                            <div className='flex items-center justify-between'>
+                                <p className='font-bold text-[14px]'>{activeTab === 'same-chain' ? 'Same-chain Swap' : 'Cross-chain Swap'}</p>
+                                <div className=" flex items-center gap-3 ">
+                                    <Image src={Assets.Refresh} alt='refresh' width={16} height={16} className='cursor-pointer hover:opacity-80' />
+                                    <Image src={Assets.Settings} alt='settings' width={16} height={16} className='cursor-pointer hover:opacity-80' />
+                                </div>
                             </div>
-                            <section className=' flex w-full gap-2'>
-                                <div className=" flex-1 flex flex-col justify-between">
-                                    <p className='text-[12px]'>Receive to <span className='text-button-primary font-bold pl-1'> Connect Wallet</span></p>
-                                    <div className=" mt-auto relative">
-                                        <input 
-                                            type="text" 
-                                            placeholder='0.00' 
-                                            value={toAmount}
-                                            onChange={(e) => {
-                                                const value = e.target.value;
-                                                if (value === '' || /^\d*\.?\d*$/.test(value)) {
-                                                    setToAmount(value);
-                                                }
-                                            }}
-                                            className='bg-transparent outline-none py-2 font-medium text-xl w-full pr-8' 
-                                        />
-                                        {toAmount && (
-                                                                                     <CircleX 
-                                             className="absolute right-2 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] cursor-pointer" 
-                                             onClick={() => setToAmount('')}
-                                         />
-                                        )}
-                                                                                 <div className="border-b border-[var(--color-border-primary)]"></div>
-                                     </div>
-                                 </div>
-                                 <Card className=' flex flex-row items-center gap-2 p-4'>
-                                    <Image src={Assets.TokenPlaceholder} alt='token' width={40} height={40} />
-                                    <p className='font-bold'>Token <br /> <span className='font-medium'><span className='font-normal'>on</span> Chain</span></p>
-                                </Card>
+
+                            {/* Chain Selection Band */}
+                            <section className='flex items-center gap-2'>
+                                {chains.map((chain) => (
+                                    <button
+                                        key={chain.id}
+                                        onClick={() => setSelectedChain(chain.id)}
+                                        className={`flex flex-col items-center transition-all duration-300 cursor-pointer p-2 w-fit ${selectedChain === chain.id
+                                            ? 'opacity-100 scale-110'
+                                            : 'opacity-100 hover:opacity-80'
+                                            }`}
+                                    >
+                                        <div className={`flex items-center justify-center ${selectedChain === chain.id ? 'border border-[var(--color-border-primary)] rounded-[8px] bg-[var(--color-hover-primary)] p-2' : ''
+                                            }`}>
+                                            <Image
+                                                src={chain.icon}
+                                                alt={chain.name}
+                                                width={24}
+                                                height={24}
+                                                className='rounded-full'
+                                            />
+                                        </div>
+                                    </button>
+                                ))}
                             </section>
-                                                         <div className="flex justify-between items-center text-[var(--color-text-secondary)] text-[12px]">
-                                 <p>USD <span>0</span></p>
-                                 <p> Balance -</p>
-                             </div>
-                         </Card>
-                         <Button variant='outline' className='w-full'>
-                            Swap Now
-                        </Button>
-                    </CardContent>
-                </Card>
+
+                            {/* From */}
+                            <Card className='flex py-4 px-6 gap-2 h-auto bg-[var(--color-bg-card)]'>
+                                <section className=' flex w-full gap-2'>
+                                    <div className=" flex-1 flex flex-col justify-between">
+                                        <p className='text-[12px]'>Pay from <span className='text-button-primary font-bold pl-1'> Connect Wallet</span></p>
+                                        <div className=" mt-auto relative">
+                                            <input
+                                                type="text"
+                                                placeholder='0.00'
+                                                value={fromAmount}
+                                                onChange={(e) => {
+                                                    const value = e.target.value;
+                                                    if (value === '' || /^\d*\.?\d*$/.test(value)) {
+                                                        setFromAmount(value);
+                                                    }
+                                                }}
+                                                className='bg-transparent outline-none py-2 font-medium text-xl w-full pr-8'
+                                            />
+                                            {fromAmount && (
+                                                <CircleX
+                                                    className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] cursor-pointer"
+                                                    onClick={() => setFromAmount('')}
+                                                />
+                                            )}
+                                            <div className="border-b border-[var(--color-border-primary)]"></div>
+                                        </div>
+                                    </div>
+                                    <Card className=' flex flex-row items-center gap-2 p-4 text-base'>
+                                        <Image src={theme === 'light' ? Assets.LightPlaceholder : Assets.TokenPlaceholder} alt='token' width={40} height={40} />
+                                        <p className='font-bold'>Token <br /> <span className='font-medium'><span className='font-normal'>on</span> Chain</span></p>
+                                    </Card>
+                                </section>
+                                <div className="flex justify-between items-center text-[var(--color-text-secondary)] text-[12px]">
+                                    <p>USD <span>0</span></p>
+                                    <p> Balance -</p>
+                                </div>
+                            </Card>
+
+                            {/* To */}
+                            <Card className='flex py-4 px-6 gap-2 h-auto bg-[var(--color-bg-card)] relative'>
+                                <div className="absolute -top-1 cursor-pointer hover:opacity-80 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] rounded-[8px] w-fit p-2 z-50 border border-[var(--color-border-primary)]">
+                                    <ArrowDownUp className='text-[var(--color-text-secondary)]' />
+                                </div>
+                                <section className=' flex w-full gap-2'>
+                                    <div className=" flex-1 flex flex-col justify-between">
+                                        <p className='text-[12px]'>Receive to <span className='text-button-primary font-bold pl-1'> Connect Wallet</span></p>
+                                        <div className=" mt-auto relative">
+                                            <input
+                                                type="text"
+                                                placeholder='0.00'
+                                                value={toAmount}
+                                                onChange={(e) => {
+                                                    const value = e.target.value;
+                                                    if (value === '' || /^\d*\.?\d*$/.test(value)) {
+                                                        setToAmount(value);
+                                                    }
+                                                }}
+                                                className='bg-transparent outline-none py-2 font-medium text-xl w-full pr-8'
+                                            />
+                                            {toAmount && (
+                                                <CircleX
+                                                    className="absolute right-2 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] cursor-pointer"
+                                                    onClick={() => setToAmount('')}
+                                                />
+                                            )}
+                                            <div className="border-b border-[var(--color-border-primary)]"></div>
+                                        </div>
+                                    </div>
+                                    <Card className=' flex flex-row items-center gap-2 p-4'>
+                                        <Image src={theme === 'light' ? Assets.LightPlaceholder : Assets.TokenPlaceholder} alt='token' width={40} height={40} />
+                                        <p className='font-bold'>Token <br /> <span className='font-medium'><span className='font-normal'>on</span> Chain</span></p>
+                                    </Card>
+                                </section>
+                                <div className="flex justify-between items-center text-[var(--color-text-secondary)] text-[12px]">
+                                    <p>USD <span>0</span></p>
+                                    <p> Balance -</p>
+                                </div>
+                            </Card>
+                            <Button variant='outline' className='w-full'>
+                                Swap Now
+                            </Button>
+                        </CardContent>
+                    </Card>
                 </div>
 
                 <Accordion type='single' collapsible className='max-w-xl mx-auto mb-20 mt-6'>

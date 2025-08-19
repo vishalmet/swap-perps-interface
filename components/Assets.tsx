@@ -22,6 +22,13 @@ import Deposit from "../app/assets/icons/deposit.svg";
 import Win from "../app/assets/icons/wincoins.svg";
 import User from "../app/assets/icons/user.svg";
 
+import LightUser from "../app/assets/icons/l-user.svg";
+import LightDeposit from "../app/assets/icons/l-deposit.svg";
+import LightWin from "../app/assets/icons/l-wincoins.svg";
+import LightStar from "../app/assets/icons/l-star.svg";
+import LightSplit from "../app/assets/icons/l-split.svg";
+import LightPlaceholder from "../app/assets/icons/l-placeholder.svg";
+
 export const Assets = {
     KanaLogo,
     Aptos,
@@ -44,4 +51,10 @@ export const Assets = {
     Win,
     User,
     PerpPair,
+    LightUser,
+    LightDeposit,
+    LightWin,
+    LightStar,
+    LightSplit,
+    LightPlaceholder,
 };
