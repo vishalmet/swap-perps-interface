@@ -178,22 +178,22 @@ const PerpsPage = () => {
                   <p className='text-white/60 text-[10px] w-1/3'>Size</p>
                   <p className='text-white/60 text-[10px] w-1/2'>Time</p>
                 </CardContent>
-                                 <div className="h-[70%] overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
-                   {[
-                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'buy' },
-                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'sell' },
-                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'buy' },
-                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'sell' },
-                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'buy' },
-                     { price: '5.606', size: '23.234', time: '12:36:28', side: 'sell' }
-                   ].map((trade, index) => (
-                     <div key={`trade-${index}`} className="flex text-[10px] px-2 py-1 border-b border-white/10 last:border-b-0">
-                       <p className={`w-1/3 ${trade.side === 'buy' ? 'text-[#66BB6A]' : 'text-[#EF5350]'}`}>{trade.price}</p>
-                       <p className='w-1/3'>{trade.size}</p>
-                       <p className='w-1/2 flex justify-between items-center'>{trade.time} <ExternalLink className='text-primary cursor-pointer hover:opacity-80' size={10} /></p>
-                     </div>
-                   ))}
-                 </div>
+                <div className="h-[70%] overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.2) transparent' }}>
+                  {[
+                    { price: '5.606', size: '23.234', time: '12:36:28', side: 'buy' },
+                    { price: '5.606', size: '23.234', time: '12:36:28', side: 'sell' },
+                    { price: '5.606', size: '23.234', time: '12:36:28', side: 'buy' },
+                    { price: '5.606', size: '23.234', time: '12:36:28', side: 'sell' },
+                    { price: '5.606', size: '23.234', time: '12:36:28', side: 'buy' },
+                    { price: '5.606', size: '23.234', time: '12:36:28', side: 'sell' }
+                  ].map((trade, index) => (
+                    <div key={`trade-${index}`} className="flex text-[10px] px-2 py-1 border-b border-white/10 last:border-b-0">
+                      <p className={`w-1/3 ${trade.side === 'buy' ? 'text-[#66BB6A]' : 'text-[#EF5350]'}`}>{trade.price}</p>
+                      <p className='w-1/3'>{trade.size}</p>
+                      <p className='w-1/2 flex justify-between items-center'>{trade.time} <ExternalLink className='text-primary cursor-pointer hover:opacity-80' size={10} /></p>
+                    </div>
+                  ))}
+                </div>
               </Card>
             </section>
           </section>
