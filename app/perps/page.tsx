@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis, MoveDown, ExternalLink, Upload, Download, ChevronRight, ArrowRightLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card'
@@ -54,6 +54,70 @@ const PerpsChart = () => (
 // Chart Component
 const BuyOrSell = () => {
   const [orderType, setOrderType] = useState('limit')
+  const [leverage, setLeverage] = useState(50)
+  const [isDragging, setIsDragging] = useState(false)
+
+  // Slider event handlers
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault()
+    setIsDragging(true)
+
+    // Update immediately on mouse down
+    updateLeverageFromEvent(e.clientX)
+
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
+  }, [])
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!isDragging) return
+    updateLeverageFromEvent(e.clientX)
+  }, [isDragging])
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false)
+    document.removeEventListener('mousemove', handleMouseMove)
+    document.removeEventListener('mouseup', handleMouseUp)
+  }, [])
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    e.preventDefault()
+    setIsDragging(true)
+
+    // Update immediately on touch start
+    updateLeverageFromEvent(e.touches[0].clientX)
+
+    document.addEventListener('touchmove', handleTouchMove, { passive: false })
+    document.addEventListener('touchend', handleTouchEnd)
+  }, [])
+
+  const handleTouchMove = useCallback((e: TouchEvent) => {
+    if (!isDragging) return
+    e.preventDefault()
+    updateLeverageFromEvent(e.touches[0].clientX)
+  }, [isDragging])
+
+  const handleTouchEnd = useCallback(() => {
+    setIsDragging(false)
+    document.removeEventListener('touchmove', handleTouchMove)
+    document.removeEventListener('touchend', handleTouchEnd)
+  }, [])
+
+  // Helper function to update leverage from clientX
+  const updateLeverageFromEvent = useCallback((clientX: number) => {
+    const track = document.querySelector('.slider-track') as HTMLElement
+    if (!track) return
+
+    const rect = track.getBoundingClientRect()
+    const x = clientX - rect.left
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100))
+    setLeverage(Math.round(percentage))
+  }, [])
+
+  // Click on track to set value
+  const handleTrackClick = useCallback((e: React.MouseEvent) => {
+    updateLeverageFromEvent(e.clientX)
+  }, [updateLeverageFromEvent])
 
   const tabItems = [
     { value: "open", label: "Open" },
@@ -136,7 +200,7 @@ const BuyOrSell = () => {
                   </div>
                   <Card className='rounded-[8px] bg-[#080A0A] w-full flex p-2'>
                     <div className='flex items-center justify-between'>
-                      <input type="text" placeholder='0.00' className='bg-transparent text-sm outline-none text-white/80 placeholder:text-white/80' />
+                      <input type="text" placeholder='123456' className='bg-transparent text-sm outline-none text-white/80 placeholder:text-white/80' />
                       <p className='text-white font-bold text-[10px]'>USDT</p>
                     </div>
                   </Card>
@@ -151,10 +215,60 @@ const BuyOrSell = () => {
                     <div className='flex items-center justify-between'>
                       <input type="text" placeholder='0.00' className='bg-transparent text-sm outline-none text-white/80 placeholder:text-white/80' />
                       <p className='text-white font-bold flex items-center gap-1 cursor-pointer text-[10px]'>APT <ArrowRightLeft size={12} /></p>
-                    </div> 
+                    </div>
                   </Card>
                 </CardContent>
               </Card>
+
+              {/* Leverage Slider */}
+              <Card className='rounded-[8px] w-full flex'>
+                <CardContent className='p-2 w-full'>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center gap-3">
+                      <div className="slider-container relative w-full">
+                        {/* Slider Track - Clickable */}
+                        <div
+                          className="slider-track w-full h-1 bg-white/30 rounded-full relative cursor-pointer"
+                          onClick={handleTrackClick}
+                        >
+                          {/* Active Track (filled part) */}
+                          <div
+                            className="h-full bg-primary rounded-full transition-all duration-200"
+                            style={{ width: `${leverage}%` }}
+                          />
+
+                          {/* Track Markers */}
+                          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-2 bg-primary rounded-full" />
+                          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1 h-2 bg-white/30 rounded-full" />
+                        </div>
+
+                        {/* Slider Handle */}
+                        <div
+                          className="absolute top-1/2 transform -translate-y-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white cursor-pointer hover:scale-110 transition-transform duration-200 z-10"
+                          style={{
+                            left: `calc(${leverage}% - 8px)`,
+                            marginLeft: leverage === 0 ? '0' : leverage === 100 ? 'calc(-8px)' : '0'
+                          }}
+                          onMouseDown={handleMouseDown}
+                          onTouchStart={handleTouchStart}
+                        />
+                      </div>
+                      <Card className='text-white/80 bg-[#080A0A] px-2 py-1 rounded-[8px] text-[12px] flex items-center gap-1'>
+                        <p className='flex gap-2'>{leverage} <span className='text-white/60'>%</span></p>
+                      </Card>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className=" flex justify-between items-center text-[10px]">
+                <p className='text-white/60'>Buy <span className='text-white/80 font-bold pl-2'>0.049 BTC</span></p>
+                <p className='text-white/60'>Sell <span className='text-white/80 font-bold pl-2'>0.049 BTC</span></p>
+              </div>
+
+              <Button variant='outline' size='default' className='w-full'>
+                Sign in
+              </Button>
             </TabsContent>
           ))}
         </Tabs>
