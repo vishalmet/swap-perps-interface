@@ -92,9 +92,10 @@ const PerpsPage = () => {
                 </div>
 
                 {/* Scrollable Orders Container */}
-                <div className='flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent'>
-                  {/* Sell Orders (Asks) - Red */}
-                  {[
+                <div className='flex-1 flex flex-col'>
+                  {/* Sell Orders Section - Scrollable */}
+                  <div className='flex-1 h-full max-h-[25%] overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent'>
+                    {[
                     { price: '22.025', size: '307.825', sum: '307.825' },
                     { price: '22.000', size: '45.082', sum: '352.907' },
                     { price: '21.990', size: '0.114', sum: '353.021' },
@@ -124,9 +125,10 @@ const PerpsPage = () => {
                       />
                     </div>
                   ))}
+                  </div>
 
-                  {/* Current Market Price */}
-                  <div className='flex items-center py-1 px-3'>
+                  {/* Current Market Price - Fixed Center */}
+                  <div className='flex items-center py-1 px-3 flex-shrink-0'>
                     <span className='text-[#EF5350] font-bold text-lg'>2345.5</span>
                     <svg className='w-4 h-4 text-[#EF5350] ml-1' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                       <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 14l-7 7m0 0l-7-7m7 7V3' />
@@ -134,8 +136,9 @@ const PerpsPage = () => {
                     <span className='text-white/60 text-base ml-2 underline'>2345.6</span>
                   </div>
 
-                  {/* Buy Orders (Bids) - Green */}
-                  {[
+                  {/* Buy Orders Section - Scrollable */}
+                  <div className='flex-1 h-full max-h-[25%] overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent'>
+                    {[
                     { price: '21.920', size: '0.750', sum: '0.750' },
                     { price: '21.915', size: '0.850', sum: '1.600' },
                     { price: '21.910', size: '0.950', sum: '2.550' },
@@ -165,6 +168,7 @@ const PerpsPage = () => {
                       />
                     </div>
                   ))}
+                  </div>
                 </div>
               </Card>
               <Card className='rounded-[8px] h-[31%] w-full flex justify-center items-center bg-transparent'>
