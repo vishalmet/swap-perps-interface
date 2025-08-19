@@ -72,14 +72,14 @@ const PerpsPage = () => {
                 <CardAction className='py-1 px-4 w-[155px] border-r border-white/10 hover:bg-white/5'> <span className='text-white/60 border-b border-dotted border-white/60 text-xs'>24h volume</span><br /><span className='text-sm text-white/80 font-bold'>245,694,542</span></CardAction>
                 <CardAction className='py-1 px-4 w-[180px] hover:bg-white/5 rounded-r-xl flex justify-between items-center gap-2'> <span><span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Funding</span><br /><span className='text-sm font-bold text-[#FFB74D]'>0.012%</span></span> <span><span className='text-white/60 border-b border-dotted border-white/60 text-xs'>Next Funding</span><br /><span className='text-sm text-white/80 font-bold'>00:23:34</span></span></CardAction>
               </Card>
-              <Card className='rounded-[8px] min-h-[550px] flex justify-center items-center'>
+              <Card className='rounded-[8px] min-h-[600px] flex justify-center items-center'>
                 <CardContent>Graph</CardContent>
               </Card>
             </section>
 
             {/* column 2 */}
             <section className='flex-1 space-y-2'>
-              <Card className='rounded-[8px] h-[400px] w-full bg-transparent flex flex-col'>
+              <Card className='rounded-[8px] h-[63%] w-full bg-transparent flex flex-col'>
                 <CardHeader className='text-sm py-2 px-3 border-b border-white/10 font-bold flex-shrink-0'>Orderbook</CardHeader>
 
                 {/* Headers - Fixed */}
@@ -92,7 +92,7 @@ const PerpsPage = () => {
                 </div>
 
                 {/* Scrollable Orders Container */}
-                <div className='flex-1 overflow-y-auto '>
+                <div className='flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent'>
                   {/* Sell Orders (Asks) - Red */}
                   {[
                     { price: '22.025', size: '307.825', sum: '307.825' },
@@ -167,7 +167,7 @@ const PerpsPage = () => {
                   ))}
                 </div>
               </Card>
-              <Card className='rounded-[8px] h-[33.5%] w-full flex justify-center items-center bg-transparent'>
+              <Card className='rounded-[8px] h-[31%] w-full flex justify-center items-center bg-transparent'>
 
               </Card>
             </section>
