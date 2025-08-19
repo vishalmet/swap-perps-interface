@@ -27,8 +27,9 @@ const SwapPage = () => {
     ]
 
     return (
-        <main className='space-y-6'>
-            <div className="m-10 max-w-xl mx-auto">
+        <div className='min-h-screen flex flex-col'>
+            <main className='p-4 flex-1'>
+                <div className="max-w-xl mx-auto">
                 {/* Main Swap Interface */}
                 <section className='flex items-center justify-between'>
                     <div className="flex items-center">
@@ -175,34 +176,34 @@ const SwapPage = () => {
                         </Button>
                     </CardContent>
                 </Card>
-            </div>
+                </div>
 
-            <Accordion type='single' collapsible className='max-w-xl mx-auto mb-20'>
-                <AccordionItem value='item-1' className='text-white/80'>
-                    <AccordionTrigger className='text-[#777879]'>
-                        Additional details
-                    </AccordionTrigger>
-                    <AccordionContent className='px-6'>
-                        <div className='space-y-3'>
-                            <div className='flex justify-between items-center'>
-                                <span className='text-[#777879] text-sm'>Minimum Received</span>
-                                <span className='text-white/60'>0.00</span>
+                <Accordion type='single' collapsible className='max-w-xl mx-auto mb-20 mt-6'>
+                    <AccordionItem value='item-1' className='text-white/80'>
+                        <AccordionTrigger className='text-[#777879]'>
+                            Additional details
+                        </AccordionTrigger>
+                        <AccordionContent className='px-6'>
+                            <div className='space-y-3'>
+                                <div className='flex justify-between items-center'>
+                                    <span className='text-[#777879] text-sm'>Minimum Received</span>
+                                    <span className='text-white/60'>0.00</span>
+                                </div>
+                                <div className='flex justify-between items-center'>
+                                    <span className='text-[#777879] text-sm'>Transaction Fee</span>
+                                    <span className='text-white/60'>0.00</span>
+                                </div>
+                                <div className='flex items-center gap-2 text-[#00FFF0] cursor-pointer hover:opacity-80'>
+                                    <span className='text-sm font-medium'>More routes</span>
+                                    <ExternalLink className='w-[16px] h-[16px] text-primary' />
+                                </div>
                             </div>
-                            <div className='flex justify-between items-center'>
-                                <span className='text-[#777879] text-sm'>Transaction Fee</span>
-                                <span className='text-white/60'>0.00</span>
-                            </div>
-                            <div className='flex items-center gap-2 text-[#00FFF0] cursor-pointer hover:opacity-80'>
-                                <span className='text-sm font-medium'>More routes</span>
-                                <ExternalLink className='w-[16px] h-[16px] text-primary' />
-                            </div>
-                        </div>
-                    </AccordionContent>
-                </AccordionItem>
-            </Accordion>
-
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
+            </main>
             <Footer />
-        </main>
+        </div>
     )
 }
 

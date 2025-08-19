@@ -544,8 +544,8 @@ const PerpsHistory = () => {
 // Main PerpsPage Component
 const PerpsPage = () => {
   return (
-    <div className=''>
-      <main className='p-4 flex space-x-2 w-full'>
+    <div className='min-h-screen flex flex-col'>
+      <main className='p-4 flex space-x-2 w-full flex-1'>
         {/* column 1 & 2 */}
         <section className='w-[80%] space-y-2'>
           {/* column 1 */}
