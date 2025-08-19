@@ -5,6 +5,7 @@ import { Card, CardAction, CardContent } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
+import Footer from '@/components/Footer'
 
 const PerpsPage = () => {
   const tradingPairs = [
@@ -56,8 +57,8 @@ const PerpsPage = () => {
   ]
 
   return (
-    <div className='p-4 '>
-      <main className=''>
+    <div className=''>
+      <main className='p-4 '>
         {/* column 1 & 2 */}
         <section className='w-[80%] space-y-2'>
           {/* column 1 */}
@@ -159,6 +160,7 @@ const PerpsPage = () => {
 
         </section>
       </main>
+      <Footer />
     </div>
   )
 }
