@@ -6,6 +6,7 @@ import { Assets } from '@/components/Assets'
 import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from '@/components/ui/accordion'
+import Footer from '@/components/Footer'
 
 const SwapPage = () => {
     const [activeTab, setActiveTab] = useState<'same-chain' | 'cross-chain'>('same-chain')
@@ -24,8 +25,8 @@ const SwapPage = () => {
     ]
 
     return (
-        <main className='max-w-xl mx-auto space-y-6 m-10'>
-            <div className="">
+        <main className='space-y-6'>
+            <div className="m-10 max-w-xl mx-auto">
                 {/* Main Swap Interface */}
                 <section className='flex items-center justify-between'>
                     <div className="flex items-center">
@@ -140,7 +141,7 @@ const SwapPage = () => {
                 </Card>
             </div>
 
-            <Accordion type='single' collapsible>
+            <Accordion type='single' collapsible className='max-w-xl mx-auto mb-20'>
                 <AccordionItem value='item-1' className='text-white/80'>
                     <AccordionTrigger className='text-[#777879]'>
                         Additional details
@@ -166,6 +167,8 @@ const SwapPage = () => {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
+
+            <Footer />
         </main>
     )
 }

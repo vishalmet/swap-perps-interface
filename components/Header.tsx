@@ -39,7 +39,7 @@ const Header = () => {
     }
 
     return (
-        <header className='w-full flex justify-between items-center'>
+        <header className='w-full flex justify-between items-center p-2 px-4'>
             <section className=" flex items-center gap-4">
                 <Image src={Assets.KanaLogo} alt="Kanalabs" width={100} height={100} />
                 <div className="">
