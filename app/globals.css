@@ -112,7 +112,7 @@ body {
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  --input: transparent;
   --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
@@ -145,4 +145,91 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 4px;
+}
+
+/* Custom Checkbox Styles */
+.hidden-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.checkmark:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Style the checkmark when the checkbox is checked */
+.hidden-checkbox:checked + .checkmark {
+  background-color: #00FFF0;
+  border-color: #00FFF0;
+}
+
+/* Add checkmark icon when checked */
+.hidden-checkbox:checked + .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 8px;
+  border: 2px solid #000;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* Custom Checkbox Styles */
+.hidden-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.checkmark:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Style the checkmark when the checkbox is checked */
+.hidden-checkbox:checked + .checkmark {
+  background-color: #00FFF0;
+  border-color: #00FFF0;
+}
+
+/* Add checkmark icon when checked */
+.hidden-checkbox:checked + .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 10px;
+  border: solid rgb(0, 0, 0);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }

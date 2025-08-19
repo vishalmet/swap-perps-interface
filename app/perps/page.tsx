@@ -4,6 +4,7 @@ import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis, M
 import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
+import { Checkbox } from '@/components/ui/checkbox'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
 import Footer from '@/components/Footer'
@@ -56,6 +57,7 @@ const BuyOrSell = () => {
   const [orderType, setOrderType] = useState('limit')
   const [leverage, setLeverage] = useState(50)
   const [isDragging, setIsDragging] = useState(false)
+  const [tpSlEnabled, setTpSlEnabled] = useState(false)
 
   // Slider event handlers
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
@@ -169,7 +171,7 @@ const BuyOrSell = () => {
           </TabsList>
 
           {tabItems.map((tab) => (
-            <TabsContent key={tab.value} value={tab.value} className="min-h-48 px-2 pb-2 space-y-2">
+            <TabsContent key={tab.value} value={tab.value} className="min-h-48 p-2 pt-0 space-y-2">
               <section className=" flex items-center justify-between text-base">
                 <div className=" flex items-center gap-2 pl-6 pb-2">
                   <div
@@ -198,10 +200,14 @@ const BuyOrSell = () => {
                     <p className='text-white/60 text-[10px]'>Price</p>
                     <p className='text-primary text-[10px] font-bold'>Mid</p>
                   </div>
-                  <Card className='rounded-[8px] bg-[#080A0A] w-full flex p-2'>
-                    <div className='flex items-center justify-between'>
-                      <input type="text" placeholder='123456' className='bg-transparent text-sm outline-none text-white/80 placeholder:text-white/80' />
-                      <p className='text-white font-bold text-[10px]'>USDT</p>
+                  <Card className='rounded-[8px] bg-[#080A0A] w-full flex p-2 border border-white/10 hover:border-white/20 transition-colors duration-200'>
+                    <div className='flex items-center justify-between w-full'>
+                      <input
+                        type="text"
+                        placeholder='123456'
+                        className='bg-transparent text-sm outline-none text-white/80 placeholder:text-white/60 w-full pr-2 focus:text-white transition-colors duration-200'
+                      />
+                      <p className='text-white font-bold text-[10px] flex-shrink-0'>USDT</p>
                     </div>
                   </Card>
                 </CardContent>
@@ -211,10 +217,14 @@ const BuyOrSell = () => {
                   <div className=" flex px-2">
                     <p className='text-white/60 text-[10px]'>Amount</p>
                   </div>
-                  <Card className='rounded-[8px] bg-[#080A0A] w-full flex p-2'>
-                    <div className='flex items-center justify-between'>
-                      <input type="text" placeholder='0.00' className='bg-transparent text-sm outline-none text-white/80 placeholder:text-white/80' />
-                      <p className='text-white font-bold flex items-center gap-1 cursor-pointer text-[10px]'>APT <ArrowRightLeft size={12} /></p>
+                  <Card className='rounded-[8px] bg-[#080A0A] w-full flex p-2 border border-white/10 hover:border-white/20 transition-colors duration-200'>
+                    <div className='flex items-center justify-between w-full'>
+                      <input
+                        type="text"
+                        placeholder='0.00'
+                        className='bg-transparent text-sm outline-none text-white/80 placeholder:text-white/60 w-full pr-2 focus:text-white transition-colors duration-200'
+                      />
+                      <p className='text-white font-bold flex items-center gap-1 cursor-pointer text-[10px] flex-shrink-0 hover:text-primary transition-colors duration-200'>APT <ArrowRightLeft size={12} /></p>
                     </div>
                   </Card>
                 </CardContent>
@@ -261,14 +271,60 @@ const BuyOrSell = () => {
                 </CardContent>
               </Card>
 
-              <div className=" flex justify-between items-center text-[10px]">
+              <div className=" flex justify-between items-center text-[10px] py-2 px-3">
                 <p className='text-white/60'>Buy <span className='text-white/80 font-bold pl-2'>0.049 BTC</span></p>
                 <p className='text-white/60'>Sell <span className='text-white/80 font-bold pl-2'>0.049 BTC</span></p>
               </div>
 
+              <Card className='rounded-[8px] w-full flex flex-row p-2 justify-between items-center'>
+                <div className="flex items-center gap-2">
+                  <label className='custom-checkbox-container cursor-pointer flex items-center'>
+                    <input
+                      type='checkbox'
+                      checked={tpSlEnabled}
+                      onChange={(e) => setTpSlEnabled(e.target.checked)}
+                      className='hidden-checkbox'
+                    />
+                    <span className='checkmark'></span>
+                  </label>
+                  <span className='text-white/80 text-sm flex items-center'>TP/SL</span>
+                </div>
+                <div className="text-[10px] flex gap-2">
+                  <p className='text-white/40'>Long</p>
+                  <p className='text-white/40'>Short</p>
+                </div>
+              </Card>
+
               <Button variant='outline' size='default' className='w-full font-bold'>
                 Sign in
               </Button>
+
+              <section className='pt-2 px-3 space-y-1'>
+                <div className=" font-bold text-[10px] flex justify-between items-center">
+                  <p className='text-white/60 w-1/3 text-start'>126.59</p>
+                  <p className='underline text-white/40 w-1/3 text-center'>Liq</p>
+                  <p className='text-white/60 w-1/3 text-end'>126.59</p>
+                </div>
+                <div className=" font-bold text-[10px] flex justify-between items-center">
+                  <p className='text-white/60 w-1/3 text-start'>$2,409.23</p>
+                  <p className='underline text-white/40 w-1/3 text-center'>Value</p>
+                  <p className='text-white/60 w-1/3 text-end'>$2,409.23</p>
+                </div>
+                <div className=" font-bold text-[10px] flex justify-between items-center">
+                  <p className='text-white/60 w-1/3 text-start'>$120.59</p>
+                  <p className='underline text-white/40 w-1/3 text-center'>Mark</p>
+                  <p className='text-white/60 w-1/3 text-end'>$120.59</p>
+                </div>
+                <div className=" font-bold text-[10px] flex justify-between items-center">
+                  <p className='text-white/60 w-1/3 text-start'>8%</p>
+                  <p className='underline text-white/40 w-1/3 text-center'>Slippage</p>
+                  <p className='text-white/60 w-1/3 text-end'>8%</p>
+                </div>
+                <div className=" text-[10px] flex justify-between items-center">
+                  <p className='text-white/40'>Estimated fees</p>
+                  <p className='text-white/60 font-bold'>0.035% / 0.010%</p>
+                </div>
+              </section>
             </TabsContent>
           ))}
         </Tabs>
