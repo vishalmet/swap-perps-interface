@@ -51,7 +51,13 @@ const PerpsChart = () => (
 )
 
 // Chart Component
-const BuyOrSell = () => (
+const BuyOrSell = () => {
+  const tabItems = [
+    { value: "open", label: "Open" },
+    { value: "close", label: "Close" }
+  ]
+
+  return (
   <div className="w-full space-y-2">
     <Card className='rounded-[8px] bg-transparent w-full flex'>
       <CardContent className=' px-2 py-2 flex justify-between items-center'>
@@ -79,8 +85,36 @@ const BuyOrSell = () => (
       </Card>
     </div>
 
+    <Card className='rounded-[8px] bg-transparent w-full flex'>
+      <Tabs defaultValue="open" className="w-full">
+        <TabsList className="bg-transparent p-0 border-b border-white/10 flex justify-between items-center w-full">
+          <div className="flex justify-between w-full">
+            {tabItems.map((tab) => (
+              <TabsTrigger
+                key={tab.value}
+                value={tab.value}
+                className={tab.value === 'open' ? 'rounded-tl-[8px]' : 'rounded-tr-[8px]'}
+              >
+                {tab.label}
+              </TabsTrigger>
+            ))}
+          </div>
+        </TabsList>
+
+        {tabItems.map((tab) => (
+          <TabsContent key={tab.value} value={tab.value} className="min-h-48 flex justify-center items-center">
+            <div className="p-4">
+              <p className="text-white/60 text-[10px]">Sign in to see your {tab.label}</p>
+              <p className='text-primary font-bold text-center text-xs hover:underline cursor-pointer'>Sign in</p>
+            </div>
+          </TabsContent>
+        ))}
+      </Tabs>
+    </Card>
+
   </div >
-)
+  )
+}
 
 // Orderbook Component
 const Orderbook = () => {
@@ -239,8 +273,8 @@ const PerpsHistory = () => {
     <Card className='rounded-[8px] min-h-full w-full bg-transparent'>
       <CardContent className='px-0'>
         <Tabs defaultValue="open-orders" className="w-full">
-          <TabsList className="bg-transparent p-0 border-b border-white/10 flex justify-between items-center">
-            <div className="flex">
+          <TabsList className="bg-transparent p-0 border-b border-white/10 flex justify-between items-center w-full">
+            <div className="flex w-fit">
               {tabItems.map((tab) => (
                 <TabsTrigger
                   key={tab.value}
