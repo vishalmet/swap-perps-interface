@@ -1,7 +1,7 @@
 import React from 'react'
 import { TrendingUp, TrendingDown, BarChart3, BookOpen, ChevronDown, Ellipsis } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardAction, CardContent } from '@/components/ui/card'
+import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Assets } from '@/components/Assets'
 import Image from 'next/image'
@@ -79,8 +79,9 @@ const PerpsPage = () => {
 
             {/* column 2 */}
             <section className='flex-1 space-y-2'>
-              <Card className='rounded-[8px] h-[65%] w-full flex justify-center items-center bg-transparent'>
-                <CardContent>
+              <Card className='rounded-[8px] h-[65%] w-full bg-transparent'>
+                <CardHeader className='text-sm py-2 px-3 border-b border-white/10 font-bold'>Orderbook</CardHeader>
+                <CardContent className='px-0'>
                   <div className='flex flex-col gap-2'>
                     <div className='flex flex-row gap-2'>
                       <div className='w-10 h-10 bg-white/10 rounded-full'></div>
